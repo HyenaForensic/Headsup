@@ -14,6 +14,11 @@ namespace Headup
         public Main()
         {
             InitializeComponent();
+            //루트 트리 구성
+            RootNode = new TreeNode("목록"); //root tree 를 만든다.
+            documentExplorer1.Nodes.AddRange(new TreeNode[] { RootNode }); //루트 트리를 추가한다.
+            RootNode.Expand(); //루트 노드를 확장한다.
+
             //BlockColor = panelColor.BackColor; //컬러 객체 선언
             CategoryBtns = new List<SfButton>(); //버튼 리스트 선언
             diagram1.DragDrop += Diagram1_DragDrop;
@@ -72,9 +77,22 @@ namespace Headup
 
             if (openFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                FileInfo file = new FileInfo(openFile1.FileName);
                 string readText = File.ReadAllText(openFile1.FileName);
-                labelFilePath.Text = openFile1.FileName;
+                CurrentFilePath = openFile1.FileName;
                 richTextBoxName.Text = readText;
+                TreeNode node = new TreeNode(file.Name);
+                RootNode.Nodes.AddRange(new TreeNode[] { node }); //트리를 추가한다.
+            }
+        }
+        #endregion
+
+        #region 트리뷰 관련
+        private void documentExplorer1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if(e.Node.Level == 1) //루트가 아니면 (자식은 한 레벨 뿐)
+            {
+                MessageBox.Show(e.Node.Text + "를 클릭");
             }
         }
         #endregion
@@ -116,36 +134,7 @@ namespace Headup
         }
         #endregion
 
-        //GraphicsPath GetRoundPath(RectangleF Rect, int radius)
-        //{
-        //    float r2 = radius / 2f;
-        //    GraphicsPath GraphPath = new GraphicsPath();
-        //    GraphPath.AddArc(Rect.X, Rect.Y, radius, radius, 180, 90);
-        //    GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
-        //    GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y, radius, radius, 270, 90);
-        //    GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
-        //    GraphPath.AddArc(Rect.X + Rect.Width - radius,
-        //                     Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
-        //    GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
-        //    GraphPath.AddArc(Rect.X, Rect.Y + Rect.Height - radius, radius, radius, 90, 90);
-        //    GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
-        //    GraphPath.CloseFigure();
-        //    return GraphPath;
-        //}
-        //private void sfButtonAdd_Paint(object sender, PaintEventArgs e)
-        //{
-        //    SfButton btnTmp = (SfButton)sender;
-        //    //Rounded rectangle corder radius. The radius must be less than 10.
-        //    int radius = 5;
-        //    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-        //    Rectangle rect = new Rectangle(btnTmp.ClientRectangle.X + 1,
-        //                                   btnTmp.ClientRectangle.Y + 1,
-        //                                   btnTmp.ClientRectangle.Width - 2,
-        //                                   btnTmp.ClientRectangle.Height - 2);
-        //    btnTmp.Region = new Region(GetRoundPath(rect, radius));
-        //    rect = new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2);
-        //    e.Graphics.DrawPath(new Pen(Color.Red), GetRoundPath(rect, radius));
-        //}
+        
 
         #region 변수 선언
         private Color currentSelectedColor;
@@ -153,6 +142,26 @@ namespace Headup
         private static string categoryNameFromAddForm; //AddCategory 폼에서 이름을 가져오기 위한 static 변수
         private static bool selectedColorFlagFromAddForm = false;
         private List<SfButton> categoryBtns; //카테고리 버튼 리스트
+        private TreeNode rootNode; //트리의 루트
+        private string currentFilePath;
+
+        public string CurrentFilePath
+        {
+            get { return currentFilePath; }
+            set
+            {
+                currentFilePath = value;
+                labelFilePath.Text = currentFilePath;
+            }
+        }
+
+
+        public TreeNode RootNode
+        {
+            get { return rootNode; }
+            set { rootNode = value; }
+        }
+
         public Color CurrentSelectedColor
         {
             get { return currentSelectedColor; }
@@ -184,5 +193,7 @@ namespace Headup
 
 
         #endregion
+
+        
     }
 }

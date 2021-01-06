@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -42,17 +42,17 @@
             this.parentBarItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainerAdv1 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
+            this.documentExplorer1 = new Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer();
             this.treeViewAdv1 = new Syncfusion.Windows.Forms.Tools.TreeViewAdv();
             this.splitContainerAdv2 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
             this.splitContainerAdvTextArea = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
             this.richTextBoxName = new System.Windows.Forms.RichTextBox();
-            this.panelCategoryBtn = new System.Windows.Forms.Panel();
             this.flowLayoutPanelCategory = new System.Windows.Forms.FlowLayoutPanel();
             this.sfButtonAdd = new Syncfusion.WinForms.Controls.SfButton();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelCategoryRight = new System.Windows.Forms.Panel();
             this.panelCurrentColor = new System.Windows.Forms.Panel();
             this.labelCurrentColor = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelCategoryRightTop = new System.Windows.Forms.Panel();
             this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -68,7 +68,16 @@
             this.tabPageAdvTimeline = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tabPageAdvIssue = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.flowLayout1 = new Syncfusion.Windows.Forms.Tools.FlowLayout(this.components);
-            this.documentExplorer1 = new Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer();
+            this.panelCategoryMain = new System.Windows.Forms.Panel();
+            this.panelCategoryMainMain = new System.Windows.Forms.Panel();
+            this.panelCategoryMainTop = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBoxEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).BeginInit();
@@ -84,11 +93,10 @@
             this.splitContainerAdvTextArea.Panel1.SuspendLayout();
             this.splitContainerAdvTextArea.Panel2.SuspendLayout();
             this.splitContainerAdvTextArea.SuspendLayout();
-            this.panelCategoryBtn.SuspendLayout();
             this.flowLayoutPanelCategory.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelCategoryRight.SuspendLayout();
             this.panelCurrentColor.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelCategoryRightTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -100,18 +108,22 @@
             this.splitContainerAdv3.Panel2.SuspendLayout();
             this.splitContainerAdv3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).BeginInit();
+            this.panelCategoryMain.SuspendLayout();
+            this.panelCategoryMainMain.SuspendLayout();
+            this.panelCategoryMainTop.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // diagram1
             // 
             this.diagram1.BackColor = System.Drawing.Color.DarkGray;
-            binding1.DefaultConnector = null;
-            binding1.DefaultNode = null;
-            binding1.Diagram = this.diagram1;
-            binding1.Id = null;
-            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
-            binding1.ParentId = null;
-            this.diagram1.Binding = binding1;
+            binding2.DefaultConnector = null;
+            binding2.DefaultNode = null;
+            binding2.Diagram = this.diagram1;
+            binding2.Id = null;
+            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
+            binding2.ParentId = null;
+            this.diagram1.Binding = binding2;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -262,18 +274,29 @@
             this.splitContainerAdv1.Text = "splitContainerAdv1";
             this.splitContainerAdv1.ThemeName = "None";
             // 
+            // documentExplorer1
+            // 
+            this.documentExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.documentExplorer1.ImageIndex = 1;
+            this.documentExplorer1.Location = new System.Drawing.Point(0, 0);
+            this.documentExplorer1.Name = "documentExplorer1";
+            this.documentExplorer1.SelectedImageIndex = 1;
+            this.documentExplorer1.Size = new System.Drawing.Size(198, 601);
+            this.documentExplorer1.TabIndex = 1;
+            this.documentExplorer1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.documentExplorer1_NodeMouseDoubleClick);
+            // 
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -340,8 +363,8 @@
             // 
             // splitContainerAdvTextArea.Panel2
             // 
-            this.splitContainerAdvTextArea.Panel2.Controls.Add(this.panelCategoryBtn);
-            this.splitContainerAdvTextArea.Panel2.Controls.Add(this.panel3);
+            this.splitContainerAdvTextArea.Panel2.Controls.Add(this.panelCategoryMain);
+            this.splitContainerAdvTextArea.Panel2.Controls.Add(this.panelCategoryRight);
             this.splitContainerAdvTextArea.Size = new System.Drawing.Size(572, 568);
             this.splitContainerAdvTextArea.SplitterDistance = 443;
             this.splitContainerAdvTextArea.TabIndex = 1;
@@ -360,15 +383,6 @@
             this.richTextBoxName.TabIndex = 2;
             this.richTextBoxName.Text = "<파일을 열어주세요>";
             // 
-            // panelCategoryBtn
-            // 
-            this.panelCategoryBtn.Controls.Add(this.flowLayoutPanelCategory);
-            this.panelCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCategoryBtn.Location = new System.Drawing.Point(0, 0);
-            this.panelCategoryBtn.Name = "panelCategoryBtn";
-            this.panelCategoryBtn.Size = new System.Drawing.Size(505, 118);
-            this.panelCategoryBtn.TabIndex = 1;
-            // 
             // flowLayoutPanelCategory
             // 
             this.flowLayoutPanelCategory.AutoScroll = true;
@@ -378,7 +392,7 @@
             this.flowLayoutPanelCategory.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelCategory.Name = "flowLayoutPanelCategory";
             this.flowLayoutPanelCategory.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanelCategory.Size = new System.Drawing.Size(505, 118);
+            this.flowLayoutPanelCategory.Size = new System.Drawing.Size(502, 89);
             this.flowLayoutPanelCategory.TabIndex = 2;
             // 
             // sfButtonAdd
@@ -392,24 +406,24 @@
             this.sfButtonAdd.Text = "Add";
             this.sfButtonAdd.Click += new System.EventHandler(this.sfButtonAdd_Click);
             // 
-            // panel3
+            // panelCategoryRight
             // 
-            this.panel3.Controls.Add(this.panelCurrentColor);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(505, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(67, 118);
-            this.panel3.TabIndex = 0;
+            this.panelCategoryRight.Controls.Add(this.panelCurrentColor);
+            this.panelCategoryRight.Controls.Add(this.panelCategoryRightTop);
+            this.panelCategoryRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelCategoryRight.Location = new System.Drawing.Point(502, 0);
+            this.panelCategoryRight.Name = "panelCategoryRight";
+            this.panelCategoryRight.Size = new System.Drawing.Size(70, 118);
+            this.panelCategoryRight.TabIndex = 0;
             // 
             // panelCurrentColor
             // 
             this.panelCurrentColor.Controls.Add(this.labelCurrentColor);
             this.panelCurrentColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCurrentColor.Location = new System.Drawing.Point(0, 62);
+            this.panelCurrentColor.Location = new System.Drawing.Point(0, 59);
             this.panelCurrentColor.Name = "panelCurrentColor";
             this.panelCurrentColor.Padding = new System.Windows.Forms.Padding(4);
-            this.panelCurrentColor.Size = new System.Drawing.Size(67, 56);
+            this.panelCurrentColor.Size = new System.Drawing.Size(70, 59);
             this.panelCurrentColor.TabIndex = 1;
             // 
             // labelCurrentColor
@@ -418,31 +432,32 @@
             this.labelCurrentColor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCurrentColor.Location = new System.Drawing.Point(4, 4);
             this.labelCurrentColor.Name = "labelCurrentColor";
-            this.labelCurrentColor.Size = new System.Drawing.Size(59, 48);
+            this.labelCurrentColor.Size = new System.Drawing.Size(62, 51);
             this.labelCurrentColor.TabIndex = 0;
             this.labelCurrentColor.Text = "Color";
             this.labelCurrentColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
+            // panelCategoryRightTop
             // 
-            this.panel4.Controls.Add(this.sfButton1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(4);
-            this.panel4.Size = new System.Drawing.Size(67, 62);
-            this.panel4.TabIndex = 0;
+            this.panelCategoryRightTop.Controls.Add(this.sfButton1);
+            this.panelCategoryRightTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCategoryRightTop.Location = new System.Drawing.Point(0, 0);
+            this.panelCategoryRightTop.Name = "panelCategoryRightTop";
+            this.panelCategoryRightTop.Padding = new System.Windows.Forms.Padding(4);
+            this.panelCategoryRightTop.Size = new System.Drawing.Size(70, 59);
+            this.panelCategoryRightTop.TabIndex = 0;
             // 
             // sfButton1
             // 
             this.sfButton1.AccessibleName = "Button";
             this.sfButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButton1.ImageSize = new System.Drawing.Size(40, 40);
             this.sfButton1.Location = new System.Drawing.Point(4, 4);
             this.sfButton1.Name = "sfButton1";
-            this.sfButton1.Size = new System.Drawing.Size(59, 54);
+            this.sfButton1.Size = new System.Drawing.Size(62, 51);
+            this.sfButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.sfButton1.TabIndex = 0;
-            this.sfButton1.Text = "sfButton1";
             // 
             // panel1
             // 
@@ -617,15 +632,93 @@
             // 
             this.flowLayout1.AutoHeight = true;
             // 
-            // documentExplorer1
+            // panelCategoryMain
             // 
-            this.documentExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.documentExplorer1.ImageIndex = 0;
-            this.documentExplorer1.Location = new System.Drawing.Point(0, 0);
-            this.documentExplorer1.Name = "documentExplorer1";
-            this.documentExplorer1.SelectedImageIndex = 0;
-            this.documentExplorer1.Size = new System.Drawing.Size(198, 601);
-            this.documentExplorer1.TabIndex = 1;
+            this.panelCategoryMain.Controls.Add(this.panelCategoryMainMain);
+            this.panelCategoryMain.Controls.Add(this.panelCategoryMainTop);
+            this.panelCategoryMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCategoryMain.Location = new System.Drawing.Point(0, 0);
+            this.panelCategoryMain.Name = "panelCategoryMain";
+            this.panelCategoryMain.Size = new System.Drawing.Size(502, 118);
+            this.panelCategoryMain.TabIndex = 1;
+            // 
+            // panelCategoryMainMain
+            // 
+            this.panelCategoryMainMain.Controls.Add(this.flowLayoutPanelCategory);
+            this.panelCategoryMainMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCategoryMainMain.Location = new System.Drawing.Point(0, 29);
+            this.panelCategoryMainMain.Name = "panelCategoryMainMain";
+            this.panelCategoryMainMain.Size = new System.Drawing.Size(502, 89);
+            this.panelCategoryMainMain.TabIndex = 3;
+            // 
+            // panelCategoryMainTop
+            // 
+            this.panelCategoryMainTop.Controls.Add(this.toolStrip1);
+            this.panelCategoryMainTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCategoryMainTop.Location = new System.Drawing.Point(0, 0);
+            this.panelCategoryMainTop.Name = "panelCategoryMainTop";
+            this.panelCategoryMainTop.Size = new System.Drawing.Size(502, 29);
+            this.panelCategoryMainTop.TabIndex = 2;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton4,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.toolStripComboBoxEx1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(502, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "Save Template";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "Delete Template";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "New Template";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(99, 22);
+            this.toolStripLabel1.Text = "Template Name :";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripComboBoxEx1
+            // 
+            this.toolStripComboBoxEx1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.toolStripComboBoxEx1.MaxLength = 32767;
+            this.toolStripComboBoxEx1.Name = "toolStripComboBoxEx1";
+            this.toolStripComboBoxEx1.Size = new System.Drawing.Size(121, 25);
             // 
             // Main
             // 
@@ -654,11 +747,10 @@
             this.splitContainerAdvTextArea.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdvTextArea)).EndInit();
             this.splitContainerAdvTextArea.ResumeLayout(false);
-            this.panelCategoryBtn.ResumeLayout(false);
             this.flowLayoutPanelCategory.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.panelCategoryRight.ResumeLayout(false);
             this.panelCurrentColor.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.panelCategoryRightTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -672,6 +764,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv3)).EndInit();
             this.splitContainerAdv3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).EndInit();
+            this.panelCategoryMain.ResumeLayout(false);
+            this.panelCategoryMainMain.ResumeLayout(false);
+            this.panelCategoryMainTop.ResumeLayout(false);
+            this.panelCategoryMainTop.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,13 +806,22 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabelFont;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabelFilePath;
         private Syncfusion.Windows.Forms.Tools.SplitContainerAdv splitContainerAdvTextArea;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panelCategoryBtn;
+        private System.Windows.Forms.Panel panelCategoryRight;
         private Syncfusion.WinForms.Controls.SfButton sfButtonAdd;
         private System.Windows.Forms.Panel panelCurrentColor;
         private System.Windows.Forms.Label labelCurrentColor;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelCategoryRightTop;
         private Syncfusion.WinForms.Controls.SfButton sfButton1;
         private Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer documentExplorer1;
+        private System.Windows.Forms.Panel panelCategoryMain;
+        private System.Windows.Forms.Panel panelCategoryMainMain;
+        private System.Windows.Forms.Panel panelCategoryMainTop;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx toolStripComboBoxEx1;
     }
 }
