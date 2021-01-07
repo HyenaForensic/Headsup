@@ -6,6 +6,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
 using Syncfusion.Windows.Forms.Diagram;
+using System.Text;
+using Syncfusion.Windows.Forms.Edit.Interfaces;
 
 namespace Headup
 {
@@ -14,19 +16,44 @@ namespace Headup
         public Main()
         {
             InitializeComponent();
+            diagram1.DragDrop += Diagram1_DragDrop;
+            InitControls(); //각 컨트롤러 초기화
+        }
+
+        #region 초기 세팅 관련
+        private void InitControls()
+        {
+            InitButtonStyle(); //버튼 스타일 초기화
+            InitTree(); //트리에 루트 추가
+            //InitEditControl(); //Editor 초기화
+            //InitDiagram(); //다이어그램 초기화
+        }
+        private void InitButtonStyle() //button style 초기화
+        {
+            //버튼 테두리 설정
+            sfButtonDrawDiagram.Style.Border = new Pen(Color.Black, 1);
+            sfButtonAdd.Style.Border = new Pen(Color.Black, 1);
+        }
+        private void InitTree() //TreeControl 초기화
+        {
             //루트 트리 구성
             RootNode = new TreeNode("목록"); //root tree 를 만든다.
             documentExplorer1.Nodes.AddRange(new TreeNode[] { RootNode }); //루트 트리를 추가한다.
             RootNode.Expand(); //루트 노드를 확장한다.
-
-            //BlockColor = panelColor.BackColor; //컬러 객체 선언
-            CategoryBtns = new List<SfButton>(); //버튼 리스트 선언
-            diagram1.DragDrop += Diagram1_DragDrop;
-            //InitDiagram();
         }
+        private void InitEditControl() //editControl 초기화
+        {
+            //이걸 하면 확대버튼이 사라진다.....ㅡㅡ
+            IConfigLanguage currentConfigLanguage = this.editControl.Configurator.CreateLanguageConfiguration("New");
+            editControl.ApplyConfiguration(currentConfigLanguage);
 
-        #region 다이어그램 관련
-        private void InitDiagram()
+
+            //editControl의 상태표시줄 설정
+            //this.editControl.StatusBarSettings.Visible = true; // Shows the built-in status bar.
+            //this.editControl.StatusBarSettings.TextPanel.Visible = true; // Enable the TextPanel in the StatusBar.
+            //this.editControl.StatusBarSettings.GripVisibility = Syncfusion.Windows.Forms.Edit.Enums.SizingGripVisibility.Visible; // Set the visibility of the status bar sizing grip.
+        }
+        private void InitDiagram() //diagram 초기화
         {
             TableLayoutManager tlLayout = new TableLayoutManager(this.diagram1.Model, 7, 7);
             tlLayout.VerticalSpacing = 20;
@@ -38,6 +65,10 @@ namespace Headup
             this.diagram1.LayoutManager = tlLayout;
             //this.diagram1.LayoutManager.UpdateLayout(null);.AttachModel(model1);
         }
+        #endregion
+
+        #region 다이어그램 관련
+
         private void Diagram1_DragDrop(object sender, DragEventArgs e) //Diagram으로 드래그 앤 드랍을 했을 경우 처리
         {
             if(CurrentSelectedColor.Name != "0") //카테고리 색을 선택한 경우만 처리
@@ -45,18 +76,14 @@ namespace Headup
                 //다이어그램 노드에 추가하기 위해 textbox 객체를 만든다.
                 TextBox txtBox = new TextBox();
                 txtBox.Multiline = true;
-                txtBox.Text = richTextBoxName.SelectedText;
-
-                richTextBoxName.SelectionBackColor = CurrentSelectedColor; //richtextbox의 글 바탕색을 변경한다.
+                txtBox.Text = editControl.SelectedText;
 
                 //DragEventArgs에 마우스 포인트가 화면 기준으로 되어 있기 때문에 컨트롤(다이어그램)의 위치를 찾아 그만큼 빼주어야 한다.
                 int x = e.X - diagram1.AccessibilityObject.Bounds.Location.X;
                 int y = e.Y - diagram1.AccessibilityObject.Bounds.Location.Y;
-
                 ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
                 ctrlnode.HostingControl.BackColor = CurrentSelectedColor;
                 ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
-                
                 diagram1.Model.AppendChild(ctrlnode);
             }
             else
@@ -79,8 +106,20 @@ namespace Headup
             {
                 FileInfo file = new FileInfo(openFile1.FileName);
                 string readText = File.ReadAllText(openFile1.FileName);
-                CurrentFilePath = openFile1.FileName;
-                richTextBoxName.Text = readText;
+                CurrentFilePath = file.FullName;
+
+                ////EditControl 설정
+                editControl.Text = readText; // editcontrol.loadfile로 하면 인코딩이 깨진다.
+                //아래것을 하면 셀렉트 컬러가 개판이 된다.
+                IBackgroundFormat format = editControl.RegisterBackColorFormat(Color.WhiteSmoke, Color.White);
+                for (int i = 1; i <= editControl.CurrentLine; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        editControl.SetLineBackColor(i, true, format);
+                    }
+                }
+
                 TreeNode node = new TreeNode(file.Name);
                 RootNode.Nodes.AddRange(new TreeNode[] { node }); //트리를 추가한다.
             }
@@ -98,11 +137,6 @@ namespace Headup
         #endregion
 
         #region 각종 이벤트 관련
-        private void FontComboBox1_SelectedIndexChanged(object sender, EventArgs e) //폰트 변경 시
-        {
-            richTextBoxName.Font = new Font(fontComboBox.SelectedItem.ToString(), 11, System.Drawing.FontStyle.Regular);
-        }
-
         private void sfButtonAdd_Click(object sender, EventArgs e) //add button 클릭 시
         {
             AddCategory AddForm = new AddCategory();
@@ -141,7 +175,7 @@ namespace Headup
         private static Color blockColorFromAddForm; //텍스트의 블록색 저장 변수
         private static string categoryNameFromAddForm; //AddCategory 폼에서 이름을 가져오기 위한 static 변수
         private static bool selectedColorFlagFromAddForm = false;
-        private List<SfButton> categoryBtns; //카테고리 버튼 리스트
+        private List<SfButton> categoryBtns = new List<SfButton>(); //카테고리 버튼 리스트
         private TreeNode rootNode; //트리의 루트
         private string currentFilePath;
 
@@ -154,8 +188,6 @@ namespace Headup
                 labelFilePath.Text = currentFilePath;
             }
         }
-
-
         public TreeNode RootNode
         {
             get { return rootNode; }
@@ -187,13 +219,6 @@ namespace Headup
             get { return categoryBtns; }
             set { categoryBtns = value; }
         }
-
-
-
-
-
         #endregion
-
-        
     }
 }

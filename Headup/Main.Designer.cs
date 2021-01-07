@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -46,21 +47,28 @@
             this.treeViewAdv1 = new Syncfusion.Windows.Forms.Tools.TreeViewAdv();
             this.splitContainerAdv2 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
             this.splitContainerAdvTextArea = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
-            this.richTextBoxName = new System.Windows.Forms.RichTextBox();
+            this.editControl = new Syncfusion.Windows.Forms.Edit.EditControl();
+            this.panelCategoryMain = new System.Windows.Forms.Panel();
+            this.panelCategoryMainMain = new System.Windows.Forms.Panel();
             this.flowLayoutPanelCategory = new System.Windows.Forms.FlowLayoutPanel();
             this.sfButtonAdd = new Syncfusion.WinForms.Controls.SfButton();
+            this.panelCategoryMainTop = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
             this.panelCategoryRight = new System.Windows.Forms.Panel();
             this.panelCurrentColor = new System.Windows.Forms.Panel();
             this.labelCurrentColor = new System.Windows.Forms.Label();
             this.panelCategoryRightTop = new System.Windows.Forms.Panel();
-            this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
+            this.sfButtonDrawDiagram = new Syncfusion.WinForms.Controls.SfButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.autoLabelFilePath = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.labelFilePath = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.autoLabelFont = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.fontComboBox = new Syncfusion.Windows.Forms.Tools.FontComboBox();
             this.tabControlAdv1 = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
             this.tabPageAdvStory = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.splitContainerAdv3 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
@@ -68,16 +76,6 @@
             this.tabPageAdvTimeline = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tabPageAdvIssue = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.flowLayout1 = new Syncfusion.Windows.Forms.Tools.FlowLayout(this.components);
-            this.panelCategoryMain = new System.Windows.Forms.Panel();
-            this.panelCategoryMainMain = new System.Windows.Forms.Panel();
-            this.panelCategoryMainTop = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripComboBoxEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).BeginInit();
@@ -93,13 +91,17 @@
             this.splitContainerAdvTextArea.Panel1.SuspendLayout();
             this.splitContainerAdvTextArea.Panel2.SuspendLayout();
             this.splitContainerAdvTextArea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editControl)).BeginInit();
+            this.panelCategoryMain.SuspendLayout();
+            this.panelCategoryMainMain.SuspendLayout();
             this.flowLayoutPanelCategory.SuspendLayout();
+            this.panelCategoryMainTop.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.panelCategoryRight.SuspendLayout();
             this.panelCurrentColor.SuspendLayout();
             this.panelCategoryRightTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
             this.tabControlAdv1.SuspendLayout();
             this.tabPageAdvStory.SuspendLayout();
@@ -108,22 +110,18 @@
             this.splitContainerAdv3.Panel2.SuspendLayout();
             this.splitContainerAdv3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).BeginInit();
-            this.panelCategoryMain.SuspendLayout();
-            this.panelCategoryMainMain.SuspendLayout();
-            this.panelCategoryMainTop.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // diagram1
             // 
             this.diagram1.BackColor = System.Drawing.Color.DarkGray;
-            binding2.DefaultConnector = null;
-            binding2.DefaultNode = null;
-            binding2.Diagram = this.diagram1;
-            binding2.Id = null;
-            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
-            binding2.ParentId = null;
-            this.diagram1.Binding = binding2;
+            binding1.DefaultConnector = null;
+            binding1.DefaultNode = null;
+            binding1.Diagram = this.diagram1;
+            binding1.Id = null;
+            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
+            binding1.ParentId = null;
+            this.diagram1.Binding = binding1;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -144,7 +142,12 @@
             // 
             this.diagram1.View.ClientRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.diagram1.View.Controller = this.diagram1.Controller;
+            this.diagram1.View.Grid.Color = System.Drawing.Color.LightGray;
+            this.diagram1.View.Grid.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.diagram1.View.Grid.GridStyle = Syncfusion.Windows.Forms.Diagram.GridStyle.Line;
+            this.diagram1.View.Grid.HorizontalSpacing = 20F;
             this.diagram1.View.Grid.MinPixelSpacing = 4F;
+            this.diagram1.View.Grid.VerticalSpacing = 20F;
             this.diagram1.View.ScrollVirtualBounds = ((System.Drawing.RectangleF)(resources.GetObject("resource.ScrollVirtualBounds")));
             this.diagram1.View.ZoomType = Syncfusion.Windows.Forms.Diagram.ZoomType.Center;
             // 
@@ -288,15 +291,15 @@
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -359,7 +362,7 @@
             // 
             // splitContainerAdvTextArea.Panel1
             // 
-            this.splitContainerAdvTextArea.Panel1.Controls.Add(this.richTextBoxName);
+            this.splitContainerAdvTextArea.Panel1.Controls.Add(this.editControl);
             // 
             // splitContainerAdvTextArea.Panel2
             // 
@@ -371,17 +374,69 @@
             this.splitContainerAdvTextArea.Text = "splitContainerAdv4";
             this.splitContainerAdvTextArea.ThemeName = "None";
             // 
-            // richTextBoxName
+            // editControl
             // 
-            this.richTextBoxName.BackColor = System.Drawing.Color.White;
-            this.richTextBoxName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxName.EnableAutoDragDrop = true;
-            this.richTextBoxName.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxName.Name = "richTextBoxName";
-            this.richTextBoxName.ReadOnly = true;
-            this.richTextBoxName.Size = new System.Drawing.Size(572, 443);
-            this.richTextBoxName.TabIndex = 2;
-            this.richTextBoxName.Text = "<파일을 열어주세요>";
+            this.editControl.AllowZoom = true;
+            this.editControl.AutoScroll = true;
+            this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
+            this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
+            this.editControl.Configurator = config1;
+            this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
+            this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
+            this.editControl.ContextPromptBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))));
+            this.editControl.ContextTooltipBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(232)))), ((int)(((byte)(236))))));
+            this.editControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editControl.IndicatorMarginBackColor = System.Drawing.Color.Empty;
+            this.editControl.LineNumbersColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.editControl.Location = new System.Drawing.Point(0, 0);
+            this.editControl.Name = "editControl";
+            this.editControl.ReadOnly = true;
+            this.editControl.RenderRightToLeft = false;
+            this.editControl.SaveOnClose = false;
+            this.editControl.ScrollPosition = new System.Drawing.Point(0, 0);
+            this.editControl.SelectionTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
+            this.editControl.ShowHorizontalSplitters = false;
+            this.editControl.ShowIndicatorMargin = false;
+            this.editControl.ShowSelectionMargin = false;
+            this.editControl.ShowVerticalSplitters = false;
+            this.editControl.Size = new System.Drawing.Size(572, 443);
+            this.editControl.StatusBarSettings.CoordsPanel.Width = 150;
+            this.editControl.StatusBarSettings.EncodingPanel.Width = 100;
+            this.editControl.StatusBarSettings.FileNamePanel.Width = 100;
+            this.editControl.StatusBarSettings.InsertPanel.Width = 33;
+            this.editControl.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
+            this.editControl.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
+            this.editControl.StatusBarSettings.StatusPanel.Width = 70;
+            this.editControl.StatusBarSettings.TextPanel.Width = 214;
+            this.editControl.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Default;
+            this.editControl.TabIndex = 0;
+            this.editControl.Text = "<파일을 열어주세요>";
+            this.editControl.UseXPStyleBorder = true;
+            this.editControl.VisualColumn = 1;
+            this.editControl.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
+            this.editControl.WordWrap = true;
+            this.editControl.ZoomFactor = 1F;
+            // 
+            // panelCategoryMain
+            // 
+            this.panelCategoryMain.Controls.Add(this.panelCategoryMainMain);
+            this.panelCategoryMain.Controls.Add(this.panelCategoryMainTop);
+            this.panelCategoryMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCategoryMain.Location = new System.Drawing.Point(0, 0);
+            this.panelCategoryMain.Name = "panelCategoryMain";
+            this.panelCategoryMain.Size = new System.Drawing.Size(502, 118);
+            this.panelCategoryMain.TabIndex = 1;
+            // 
+            // panelCategoryMainMain
+            // 
+            this.panelCategoryMainMain.Controls.Add(this.flowLayoutPanelCategory);
+            this.panelCategoryMainMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCategoryMainMain.Location = new System.Drawing.Point(0, 29);
+            this.panelCategoryMainMain.Name = "panelCategoryMainMain";
+            this.panelCategoryMainMain.Size = new System.Drawing.Size(502, 89);
+            this.panelCategoryMainMain.TabIndex = 3;
             // 
             // flowLayoutPanelCategory
             // 
@@ -405,6 +460,75 @@
             this.sfButtonAdd.TabIndex = 0;
             this.sfButtonAdd.Text = "Add";
             this.sfButtonAdd.Click += new System.EventHandler(this.sfButtonAdd_Click);
+            // 
+            // panelCategoryMainTop
+            // 
+            this.panelCategoryMainTop.Controls.Add(this.toolStrip1);
+            this.panelCategoryMainTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCategoryMainTop.Location = new System.Drawing.Point(0, 0);
+            this.panelCategoryMainTop.Name = "panelCategoryMainTop";
+            this.panelCategoryMainTop.Size = new System.Drawing.Size(502, 29);
+            this.panelCategoryMainTop.TabIndex = 2;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton4,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.toolStripComboBoxEx1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(502, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "New Template";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "Save Template";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "Delete Template";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(99, 22);
+            this.toolStripLabel1.Text = "Template Name :";
+            // 
+            // toolStripComboBoxEx1
+            // 
+            this.toolStripComboBoxEx1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.toolStripComboBoxEx1.MaxLength = 32767;
+            this.toolStripComboBoxEx1.Name = "toolStripComboBoxEx1";
+            this.toolStripComboBoxEx1.Size = new System.Drawing.Size(121, 25);
             // 
             // panelCategoryRight
             // 
@@ -439,7 +563,7 @@
             // 
             // panelCategoryRightTop
             // 
-            this.panelCategoryRightTop.Controls.Add(this.sfButton1);
+            this.panelCategoryRightTop.Controls.Add(this.sfButtonDrawDiagram);
             this.panelCategoryRightTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCategoryRightTop.Location = new System.Drawing.Point(0, 0);
             this.panelCategoryRightTop.Name = "panelCategoryRightTop";
@@ -447,22 +571,25 @@
             this.panelCategoryRightTop.Size = new System.Drawing.Size(70, 59);
             this.panelCategoryRightTop.TabIndex = 0;
             // 
-            // sfButton1
+            // sfButtonDrawDiagram
             // 
-            this.sfButton1.AccessibleName = "Button";
-            this.sfButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButton1.ImageSize = new System.Drawing.Size(40, 40);
-            this.sfButton1.Location = new System.Drawing.Point(4, 4);
-            this.sfButton1.Name = "sfButton1";
-            this.sfButton1.Size = new System.Drawing.Size(62, 51);
-            this.sfButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.sfButton1.TabIndex = 0;
+            this.sfButtonDrawDiagram.AccessibleName = "Button";
+            this.sfButtonDrawDiagram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sfButtonDrawDiagram.BackgroundImage")));
+            this.sfButtonDrawDiagram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sfButtonDrawDiagram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfButtonDrawDiagram.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButtonDrawDiagram.ImageSize = new System.Drawing.Size(40, 40);
+            this.sfButtonDrawDiagram.Location = new System.Drawing.Point(4, 4);
+            this.sfButtonDrawDiagram.Name = "sfButtonDrawDiagram";
+            this.sfButtonDrawDiagram.Size = new System.Drawing.Size(62, 51);
+            this.sfButtonDrawDiagram.Style.BackColor = System.Drawing.Color.White;
+            this.sfButtonDrawDiagram.Style.DisabledBackColor = System.Drawing.Color.White;
+            this.sfButtonDrawDiagram.Style.FocusedBackColor = System.Drawing.Color.White;
+            this.sfButtonDrawDiagram.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -476,7 +603,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(394, 33);
+            this.panel2.Size = new System.Drawing.Size(572, 33);
             this.panel2.TabIndex = 3;
             // 
             // autoLabelFilePath
@@ -496,55 +623,6 @@
             this.labelFilePath.Name = "labelFilePath";
             this.labelFilePath.Size = new System.Drawing.Size(0, 12);
             this.labelFilePath.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.autoLabelFont);
-            this.panel6.Controls.Add(this.fontComboBox);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(394, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(178, 33);
-            this.panel6.TabIndex = 2;
-            // 
-            // autoLabelFont
-            // 
-            this.autoLabelFont.DX = -41;
-            this.autoLabelFont.DY = 5;
-            this.autoLabelFont.LabeledControl = this.fontComboBox;
-            this.autoLabelFont.Location = new System.Drawing.Point(6, 10);
-            this.autoLabelFont.Name = "autoLabelFont";
-            this.autoLabelFont.Size = new System.Drawing.Size(37, 12);
-            this.autoLabelFont.TabIndex = 1;
-            this.autoLabelFont.Text = "글꼴 :";
-            // 
-            // fontComboBox
-            // 
-            this.fontComboBox.FormattingEnabled = true;
-            this.fontComboBox.Location = new System.Drawing.Point(47, 5);
-            this.fontComboBox.Name = "fontComboBox";
-            this.fontComboBox.ShowSymbolFontPreview = true;
-            this.fontComboBox.Size = new System.Drawing.Size(121, 22);
-            this.fontComboBox.TabIndex = 0;
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonDisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonDisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(114)))), ((int)(((byte)(114)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonPressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ArrowButtonPressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ScrollBarBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbDisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbPressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.fontComboBox.ThemeStyle.ScrollBarStyle.ThumbPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.fontComboBox.UseAutoComplete = true;
-            this.fontComboBox.SelectedIndexChanged += new System.EventHandler(this.FontComboBox1_SelectedIndexChanged);
             // 
             // tabControlAdv1
             // 
@@ -632,94 +710,6 @@
             // 
             this.flowLayout1.AutoHeight = true;
             // 
-            // panelCategoryMain
-            // 
-            this.panelCategoryMain.Controls.Add(this.panelCategoryMainMain);
-            this.panelCategoryMain.Controls.Add(this.panelCategoryMainTop);
-            this.panelCategoryMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCategoryMain.Location = new System.Drawing.Point(0, 0);
-            this.panelCategoryMain.Name = "panelCategoryMain";
-            this.panelCategoryMain.Size = new System.Drawing.Size(502, 118);
-            this.panelCategoryMain.TabIndex = 1;
-            // 
-            // panelCategoryMainMain
-            // 
-            this.panelCategoryMainMain.Controls.Add(this.flowLayoutPanelCategory);
-            this.panelCategoryMainMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCategoryMainMain.Location = new System.Drawing.Point(0, 29);
-            this.panelCategoryMainMain.Name = "panelCategoryMainMain";
-            this.panelCategoryMainMain.Size = new System.Drawing.Size(502, 89);
-            this.panelCategoryMainMain.TabIndex = 3;
-            // 
-            // panelCategoryMainTop
-            // 
-            this.panelCategoryMainTop.Controls.Add(this.toolStrip1);
-            this.panelCategoryMainTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCategoryMainTop.Location = new System.Drawing.Point(0, 0);
-            this.panelCategoryMainTop.Name = "panelCategoryMainTop";
-            this.panelCategoryMainTop.Size = new System.Drawing.Size(502, 29);
-            this.panelCategoryMainTop.TabIndex = 2;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.toolStripComboBoxEx1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(502, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Save Template";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Delete Template";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "New Template";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(99, 22);
-            this.toolStripLabel1.Text = "Template Name :";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripComboBoxEx1
-            // 
-            this.toolStripComboBoxEx1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.toolStripComboBoxEx1.MaxLength = 32767;
-            this.toolStripComboBoxEx1.Name = "toolStripComboBoxEx1";
-            this.toolStripComboBoxEx1.Size = new System.Drawing.Size(121, 25);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -747,15 +737,20 @@
             this.splitContainerAdvTextArea.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdvTextArea)).EndInit();
             this.splitContainerAdvTextArea.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.editControl)).EndInit();
+            this.panelCategoryMain.ResumeLayout(false);
+            this.panelCategoryMainMain.ResumeLayout(false);
             this.flowLayoutPanelCategory.ResumeLayout(false);
+            this.panelCategoryMainTop.ResumeLayout(false);
+            this.panelCategoryMainTop.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.panelCategoryRight.ResumeLayout(false);
             this.panelCurrentColor.ResumeLayout(false);
             this.panelCategoryRightTop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).EndInit();
             this.tabControlAdv1.ResumeLayout(false);
             this.tabPageAdvStory.ResumeLayout(false);
@@ -764,12 +759,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv3)).EndInit();
             this.splitContainerAdv3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).EndInit();
-            this.panelCategoryMain.ResumeLayout(false);
-            this.panelCategoryMainMain.ResumeLayout(false);
-            this.panelCategoryMainTop.ResumeLayout(false);
-            this.panelCategoryMainTop.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -799,11 +788,7 @@
         private Syncfusion.Windows.Forms.Diagram.Controls.Diagram diagram1;
         private Syncfusion.Windows.Forms.Diagram.Model model1;
         private Syncfusion.Windows.Forms.Diagram.Controls.OverviewControl overviewControl1;
-        private System.Windows.Forms.RichTextBox richTextBoxName;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel6;
-        private Syncfusion.Windows.Forms.Tools.FontComboBox fontComboBox;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabelFont;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabelFilePath;
         private Syncfusion.Windows.Forms.Tools.SplitContainerAdv splitContainerAdvTextArea;
         private System.Windows.Forms.Panel panelCategoryRight;
@@ -811,7 +796,7 @@
         private System.Windows.Forms.Panel panelCurrentColor;
         private System.Windows.Forms.Label labelCurrentColor;
         private System.Windows.Forms.Panel panelCategoryRightTop;
-        private Syncfusion.WinForms.Controls.SfButton sfButton1;
+        private Syncfusion.WinForms.Controls.SfButton sfButtonDrawDiagram;
         private Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer documentExplorer1;
         private System.Windows.Forms.Panel panelCategoryMain;
         private System.Windows.Forms.Panel panelCategoryMainMain;
@@ -823,5 +808,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx toolStripComboBoxEx1;
+        private Syncfusion.Windows.Forms.Edit.EditControl editControl;
     }
 }
