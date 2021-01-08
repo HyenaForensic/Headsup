@@ -101,8 +101,11 @@ namespace Headup
                 txtBox.Text = editControl.SelectedText;
 
                 //DragEventArgs에 마우스 포인트가 화면 기준으로 되어 있기 때문에 컨트롤(다이어그램)의 위치를 찾아 그만큼 빼주어야 한다.
-                int x = e.X - diagram1.AccessibilityObject.Bounds.Location.X;
-                int y = e.Y - diagram1.AccessibilityObject.Bounds.Location.Y;
+                //e는 화면 기준의 마우스 위치, diagram1.AccessibilityObject.Bounds.Location은 다이어그램 컨트롤 시작 위치, origin은 page위치
+                //그래서 아래와 같이 계산하면 정확한 위치가 나온다.
+                int x = e.X - diagram1.AccessibilityObject.Bounds.Location.X + (int)diagram1.Origin.X;
+                int y = e.Y - diagram1.AccessibilityObject.Bounds.Location.Y + (int)diagram1.Origin.Y;
+                
                 ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
                 ctrlnode.HostingControl.BackColor = CurrentSelectedColor;
                 ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
