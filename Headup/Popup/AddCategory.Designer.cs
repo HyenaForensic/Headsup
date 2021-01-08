@@ -35,8 +35,8 @@
             this.colorPickerButton = new Syncfusion.Windows.Forms.ColorPickerButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.autoLabelCategoryName = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabelColor = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.autoLabelCategoryName = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -103,17 +103,6 @@
             this.panel2.Size = new System.Drawing.Size(432, 53);
             this.panel2.TabIndex = 4;
             // 
-            // autoLabelCategoryName
-            // 
-            this.autoLabelCategoryName.DX = -106;
-            this.autoLabelCategoryName.DY = 4;
-            this.autoLabelCategoryName.LabeledControl = this.textBoxCategoryName;
-            this.autoLabelCategoryName.Location = new System.Drawing.Point(9, 20);
-            this.autoLabelCategoryName.Name = "autoLabelCategoryName";
-            this.autoLabelCategoryName.Size = new System.Drawing.Size(102, 12);
-            this.autoLabelCategoryName.TabIndex = 4;
-            this.autoLabelCategoryName.Text = "Category Name :";
-            // 
             // autoLabelColor
             // 
             this.autoLabelColor.DX = -47;
@@ -125,6 +114,17 @@
             this.autoLabelColor.TabIndex = 5;
             this.autoLabelColor.Text = "Color :";
             // 
+            // autoLabelCategoryName
+            // 
+            this.autoLabelCategoryName.DX = -106;
+            this.autoLabelCategoryName.DY = 4;
+            this.autoLabelCategoryName.LabeledControl = this.textBoxCategoryName;
+            this.autoLabelCategoryName.Location = new System.Drawing.Point(9, 20);
+            this.autoLabelCategoryName.Name = "autoLabelCategoryName";
+            this.autoLabelCategoryName.Size = new System.Drawing.Size(102, 12);
+            this.autoLabelCategoryName.TabIndex = 4;
+            this.autoLabelCategoryName.Text = "Category Name :";
+            // 
             // AddCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -134,6 +134,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddCategory";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -51,15 +51,14 @@
             this.panelCategoryMain = new System.Windows.Forms.Panel();
             this.panelCategoryMainMain = new System.Windows.Forms.Panel();
             this.flowLayoutPanelCategory = new System.Windows.Forms.FlowLayoutPanel();
-            this.sfButtonAdd = new Syncfusion.WinForms.Controls.SfButton();
             this.panelCategoryMainTop = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBoxEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
+            this.toolStripComboBoxExTemplate = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
             this.panelCategoryRight = new System.Windows.Forms.Panel();
             this.panelCurrentColor = new System.Windows.Forms.Panel();
             this.labelCurrentColor = new System.Windows.Forms.Label();
@@ -94,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.editControl)).BeginInit();
             this.panelCategoryMain.SuspendLayout();
             this.panelCategoryMainMain.SuspendLayout();
-            this.flowLayoutPanelCategory.SuspendLayout();
             this.panelCategoryMainTop.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelCategoryRight.SuspendLayout();
@@ -442,24 +440,12 @@
             // 
             this.flowLayoutPanelCategory.AutoScroll = true;
             this.flowLayoutPanelCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanelCategory.Controls.Add(this.sfButtonAdd);
             this.flowLayoutPanelCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelCategory.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelCategory.Name = "flowLayoutPanelCategory";
             this.flowLayoutPanelCategory.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanelCategory.Size = new System.Drawing.Size(502, 89);
             this.flowLayoutPanelCategory.TabIndex = 2;
-            // 
-            // sfButtonAdd
-            // 
-            this.sfButtonAdd.AccessibleName = "Button";
-            this.sfButtonAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButtonAdd.Location = new System.Drawing.Point(8, 8);
-            this.sfButtonAdd.Name = "sfButtonAdd";
-            this.sfButtonAdd.Size = new System.Drawing.Size(96, 28);
-            this.sfButtonAdd.TabIndex = 0;
-            this.sfButtonAdd.Text = "Add";
-            this.sfButtonAdd.Click += new System.EventHandler(this.sfButtonAdd_Click);
             // 
             // panelCategoryMainTop
             // 
@@ -473,44 +459,47 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.toolStripButtonNew,
+            this.toolStripButtonSave,
+            this.toolStripButtonDelete,
             this.toolStripSeparator1,
             this.toolStripLabel1,
-            this.toolStripComboBoxEx1});
+            this.toolStripComboBoxExTemplate});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(502, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton4
+            // toolStripButtonNew
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "New Template";
+            this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNew.Image")));
+            this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNew.Name = "toolStripButtonNew";
+            this.toolStripButtonNew.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonNew.Text = "New Template";
+            this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
             // 
-            // toolStripButton2
+            // toolStripButtonSave
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Save Template";
+            this.toolStripButtonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSave.Image")));
+            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSave.Name = "toolStripButtonSave";
+            this.toolStripButtonSave.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSave.Text = "Save Template";
+            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // toolStripButton3
+            // toolStripButtonDelete
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Delete Template";
+            this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonDelete.Text = "Delete Template";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -523,12 +512,14 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(99, 22);
             this.toolStripLabel1.Text = "Template Name :";
             // 
-            // toolStripComboBoxEx1
+            // toolStripComboBoxExTemplate
             // 
-            this.toolStripComboBoxEx1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.toolStripComboBoxEx1.MaxLength = 32767;
-            this.toolStripComboBoxEx1.Name = "toolStripComboBoxEx1";
-            this.toolStripComboBoxEx1.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBoxExTemplate.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.toolStripComboBoxExTemplate.MaxLength = 32767;
+            this.toolStripComboBoxExTemplate.Name = "toolStripComboBoxExTemplate";
+            this.toolStripComboBoxExTemplate.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBoxExTemplate.Text = "템플릿 선택";
+            this.toolStripComboBoxExTemplate.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxExTemplate_SelectedIndexChanged);
             // 
             // panelCategoryRight
             // 
@@ -674,6 +665,7 @@
             // overviewControl1
             // 
             this.overviewControl1.BackColor = System.Drawing.Color.Transparent;
+            this.overviewControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.overviewControl1.Diagram = this.diagram1;
             this.overviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.overviewControl1.ForeColor = System.Drawing.Color.Red;
@@ -719,6 +711,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.xpToolBar1);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             this.Text = "Headsup";
@@ -740,7 +733,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.editControl)).EndInit();
             this.panelCategoryMain.ResumeLayout(false);
             this.panelCategoryMainMain.ResumeLayout(false);
-            this.flowLayoutPanelCategory.ResumeLayout(false);
             this.panelCategoryMainTop.ResumeLayout(false);
             this.panelCategoryMainTop.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -792,7 +784,6 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabelFilePath;
         private Syncfusion.Windows.Forms.Tools.SplitContainerAdv splitContainerAdvTextArea;
         private System.Windows.Forms.Panel panelCategoryRight;
-        private Syncfusion.WinForms.Controls.SfButton sfButtonAdd;
         private System.Windows.Forms.Panel panelCurrentColor;
         private System.Windows.Forms.Label labelCurrentColor;
         private System.Windows.Forms.Panel panelCategoryRightTop;
@@ -802,12 +793,12 @@
         private System.Windows.Forms.Panel panelCategoryMainMain;
         private System.Windows.Forms.Panel panelCategoryMainTop;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNew;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSave;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx toolStripComboBoxEx1;
+        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx toolStripComboBoxExTemplate;
         private Syncfusion.Windows.Forms.Edit.EditControl editControl;
     }
 }
