@@ -48,7 +48,7 @@
             this.sfButtonOK.Location = new System.Drawing.Point(106, 71);
             this.sfButtonOK.Name = "sfButtonOK";
             this.sfButtonOK.Size = new System.Drawing.Size(96, 28);
-            this.sfButtonOK.TabIndex = 0;
+            this.sfButtonOK.TabIndex = 3;
             this.sfButtonOK.Text = "OK";
             this.sfButtonOK.Click += new System.EventHandler(this.sfButtonOK_Click);
             // 
@@ -59,7 +59,7 @@
             this.sfButtonClose.Location = new System.Drawing.Point(264, 71);
             this.sfButtonClose.Name = "sfButtonClose";
             this.sfButtonClose.Size = new System.Drawing.Size(96, 28);
-            this.sfButtonClose.TabIndex = 1;
+            this.sfButtonClose.TabIndex = 4;
             this.sfButtonClose.Text = "CLOSE";
             this.sfButtonClose.Click += new System.EventHandler(this.sfButtonClose_Click);
             // 
@@ -68,7 +68,7 @@
             this.textBoxCategoryName.Location = new System.Drawing.Point(115, 16);
             this.textBoxCategoryName.Name = "textBoxCategoryName";
             this.textBoxCategoryName.Size = new System.Drawing.Size(131, 21);
-            this.textBoxCategoryName.TabIndex = 2;
+            this.textBoxCategoryName.TabIndex = 1;
             // 
             // colorPickerButton
             // 
@@ -76,7 +76,7 @@
             this.colorPickerButton.Location = new System.Drawing.Point(299, 16);
             this.colorPickerButton.Name = "colorPickerButton";
             this.colorPickerButton.Size = new System.Drawing.Size(120, 23);
-            this.colorPickerButton.TabIndex = 3;
+            this.colorPickerButton.TabIndex = 2;
             this.colorPickerButton.Text = "Select a Color";
             this.colorPickerButton.ColorSelected += new System.EventHandler(this.colorPickerButton_ColorSelected);
             // 
@@ -90,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(457, 110);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -101,7 +101,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(432, 53);
-            this.panel2.TabIndex = 4;
+            this.panel2.TabIndex = 0;
             // 
             // autoLabelColor
             // 
@@ -111,7 +111,7 @@
             this.autoLabelColor.Location = new System.Drawing.Point(252, 21);
             this.autoLabelColor.Name = "autoLabelColor";
             this.autoLabelColor.Size = new System.Drawing.Size(43, 12);
-            this.autoLabelColor.TabIndex = 5;
+            this.autoLabelColor.TabIndex = 0;
             this.autoLabelColor.Text = "Color :";
             // 
             // autoLabelCategoryName
@@ -122,7 +122,7 @@
             this.autoLabelCategoryName.Location = new System.Drawing.Point(9, 20);
             this.autoLabelCategoryName.Name = "autoLabelCategoryName";
             this.autoLabelCategoryName.Size = new System.Drawing.Size(102, 12);
-            this.autoLabelCategoryName.TabIndex = 4;
+            this.autoLabelCategoryName.TabIndex = 0;
             this.autoLabelCategoryName.Text = "Category Name :";
             // 
             // AddCategory

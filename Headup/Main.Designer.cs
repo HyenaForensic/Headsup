@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -75,6 +75,9 @@
             this.tabPageAdvTimeline = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tabPageAdvIssue = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.flowLayout1 = new Syncfusion.Windows.Forms.Tools.FlowLayout(this.components);
+            this.contextMenuStripExCategoryItemMenu = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            this.toolStripMenuItemModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).BeginInit();
@@ -108,18 +111,19 @@
             this.splitContainerAdv3.Panel2.SuspendLayout();
             this.splitContainerAdv3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).BeginInit();
+            this.contextMenuStripExCategoryItemMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // diagram1
             // 
             this.diagram1.BackColor = System.Drawing.Color.DarkGray;
-            binding1.DefaultConnector = null;
-            binding1.DefaultNode = null;
-            binding1.Diagram = this.diagram1;
-            binding1.Id = null;
-            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
-            binding1.ParentId = null;
-            this.diagram1.Binding = binding1;
+            binding2.DefaultConnector = null;
+            binding2.DefaultNode = null;
+            binding2.Diagram = this.diagram1;
+            binding2.Id = null;
+            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
+            binding2.ParentId = null;
+            this.diagram1.Binding = binding2;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -289,15 +293,15 @@
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -379,12 +383,12 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config1;
+            this.editControl.Configurator = config2;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
-            this.editControl.ContextPromptBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))));
-            this.editControl.ContextTooltipBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(232)))), ((int)(((byte)(236))))));
+            //this.editControl.ContextPromptBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))));
+            //this.editControl.ContextTooltipBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(232)))), ((int)(((byte)(236))))));
             this.editControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editControl.IndicatorMarginBackColor = System.Drawing.Color.Empty;
             this.editControl.LineNumbersColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -410,7 +414,7 @@
             this.editControl.StatusBarSettings.TextPanel.Width = 214;
             this.editControl.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Default;
             this.editControl.TabIndex = 0;
-            this.editControl.Text = "<파일을 열어주세요>";
+            this.editControl.Text = "";
             this.editControl.UseXPStyleBorder = true;
             this.editControl.VisualColumn = 1;
             this.editControl.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
@@ -702,6 +706,31 @@
             // 
             this.flowLayout1.AutoHeight = true;
             // 
+            // contextMenuStripExCategoryItemMenu
+            // 
+            this.contextMenuStripExCategoryItemMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemModify,
+            this.toolStripMenuItemDelete});
+            this.contextMenuStripExCategoryItemMenu.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
+            this.contextMenuStripExCategoryItemMenu.Name = "contextMenuStripExCategoryItemMenu";
+            this.contextMenuStripExCategoryItemMenu.Size = new System.Drawing.Size(99, 48);
+            this.contextMenuStripExCategoryItemMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Default;
+            this.contextMenuStripExCategoryItemMenu.ThemeName = "Default";
+            // 
+            // toolStripMenuItemModify
+            // 
+            this.toolStripMenuItemModify.Name = "toolStripMenuItemModify";
+            this.toolStripMenuItemModify.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItemModify.Text = "수정";
+            this.toolStripMenuItemModify.Click += new System.EventHandler(this.toolStripMenuItemModify_Click);
+            // 
+            // toolStripMenuItemDelete
+            // 
+            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItemDelete.Text = "삭제";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -751,6 +780,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv3)).EndInit();
             this.splitContainerAdv3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).EndInit();
+            this.contextMenuStripExCategoryItemMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -800,5 +830,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx toolStripComboBoxExTemplate;
         private Syncfusion.Windows.Forms.Edit.EditControl editControl;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripExCategoryItemMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModify;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
     }
 }

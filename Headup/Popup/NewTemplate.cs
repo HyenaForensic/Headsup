@@ -24,7 +24,7 @@ namespace Headup.Popup
             {
                 MessageBox.Show("템블릿 이름을 입력하세요");
             }
-            else if (Main.CategoryTemplate.ContainsKey(textBox1.Text))
+            else if (Main.CategoryTemplateDic.ContainsKey(textBox1.Text))
             {
                 MessageBox.Show("이미 존재합니다");
             }
