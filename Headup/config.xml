@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfConfigLanguage>
+	<ConfigLanguage name="NamFont">
+		<formats>
+			<format name="Text" Font="Gulim, 13pt"/>
+         </formats>
+		<extensions>
+		</extensions>
+		<lexems>
+		</lexems>
+		<splits>
+		</splits>
+	</ConfigLanguage>
+</ArrayOfConfigLanguage>

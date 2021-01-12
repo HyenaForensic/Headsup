@@ -27,7 +27,7 @@ namespace Headup
             InitCategory(); //버튼 스타일 초기화
             InitTree(); //트리에 루트 추가
             InitToolStripComboBox(); //템플릿을 초기화한다.
-            //InitEditControl(); //Editor 초기화
+            InitEditControl(); //Editor 초기화
             InitDiagram(); //다이어그램 초기화
         }
         private void InitToolStripComboBox() //템플릿 콤보 박스 초기화
@@ -60,14 +60,22 @@ namespace Headup
         private void InitEditControl() //editControl 초기화
         {
             //이걸 하면 확대버튼이 사라진다.....ㅡㅡ
-            IConfigLanguage currentConfigLanguage = this.editControl.Configurator.CreateLanguageConfiguration("New");
-            editControl.ApplyConfiguration(currentConfigLanguage);
+            //IConfigLanguage currentConfigLanguage = this.editControl.Configurator.CreateLanguageConfiguration("New");
+            //editControl.ApplyConfiguration(currentConfigLanguage);
+            if (File.Exists(@"./config.xml")) {
+                editControl.Configurator.Open(@"./config.xml");
+                editControl.ApplyConfiguration("NamFont");
+            }
+            else
+            {
+                MessageBox.Show("xml 파일이 없습니다.");
+            }
 
 
             //editControl의 상태표시줄 설정
-            //this.editControl.StatusBarSettings.Visible = true; // Shows the built-in status bar.
-            //this.editControl.StatusBarSettings.TextPanel.Visible = true; // Enable the TextPanel in the StatusBar.
-            //this.editControl.StatusBarSettings.GripVisibility = Syncfusion.Windows.Forms.Edit.Enums.SizingGripVisibility.Visible; // Set the visibility of the status bar sizing grip.
+            this.editControl.StatusBarSettings.Visible = true; // Shows the built-in status bar.
+            this.editControl.StatusBarSettings.TextPanel.Visible = true; // Enable the TextPanel in the StatusBar.
+            this.editControl.StatusBarSettings.GripVisibility = Syncfusion.Windows.Forms.Edit.Enums.SizingGripVisibility.Visible; // Set the visibility of the status bar sizing grip.
         }
         private void InitDiagram() //diagram 초기화
         {
@@ -152,12 +160,12 @@ namespace Headup
                 }
             }
         }
-        private bool OpenTextFileToEditControl(string filePath)
+        private bool OpenTextFileToEditControl(string filePath) //파일을 오픈할때 이벤트
         {
             CurrentFilePath = filePath;
             Ducument = File.ReadAllText(filePath);
 
-            //아래것을 하면 셀렉트 컬러가 개판이 된다.
+            //교차로 배경색을 주는 부분 , 아래것을 하면 셀렉트 컬러가 개판이 된다.
             IBackgroundFormat format = editControl.RegisterBackColorFormat(Color.WhiteSmoke, Color.White);
             for (int i = 1; i <= editControl.CurrentLine; i++)
             {
