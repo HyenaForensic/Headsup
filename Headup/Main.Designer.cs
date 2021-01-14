@@ -29,20 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
             this.parentBarItemFile = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.barItemNew = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
-            this.parentBarItem1 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
+            this.barItemOpen = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.barItemSave = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.barItemSaveAs = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.barItemExit = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.parentBarItemEdit = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
+            this.barItemImportFile = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.parentBarItem2 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.parentBarItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainerAdv1 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.documentExplorer1 = new Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer();
             this.treeViewAdv1 = new Syncfusion.Windows.Forms.Tools.TreeViewAdv();
             this.splitContainerAdv2 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
@@ -117,13 +124,13 @@
             // diagram1
             // 
             this.diagram1.BackColor = System.Drawing.Color.DarkGray;
-            binding1.DefaultConnector = null;
-            binding1.DefaultNode = null;
-            binding1.Diagram = this.diagram1;
-            binding1.Id = null;
-            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
-            binding1.ParentId = null;
-            this.diagram1.Binding = binding1;
+            binding2.DefaultConnector = null;
+            binding2.DefaultNode = null;
+            binding2.Diagram = this.diagram1;
+            binding2.Id = null;
+            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
+            binding2.ParentId = null;
+            this.diagram1.Binding = binding2;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -181,7 +188,7 @@
             this.xpToolBar1.Bar.BarName = "";
             this.xpToolBar1.Bar.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
             this.parentBarItemFile,
-            this.parentBarItem1,
+            this.parentBarItemEdit,
             this.parentBarItem2,
             this.parentBarItem3});
             this.xpToolBar1.Bar.Manager = null;
@@ -198,8 +205,15 @@
             this.parentBarItemFile.BarName = "parentBarItemFile";
             this.parentBarItemFile.ID = "File";
             this.parentBarItemFile.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
-            this.barItemNew});
+            this.barItemNew,
+            this.barItemOpen,
+            this.barItemSave,
+            this.barItemSaveAs,
+            this.barItemExit});
             this.parentBarItemFile.MetroColor = System.Drawing.Color.LightSkyBlue;
+            this.parentBarItemFile.SeparatorIndices.AddRange(new int[] {
+            2,
+            4});
             this.parentBarItemFile.ShowToolTipInPopUp = false;
             this.parentBarItemFile.SizeToFit = true;
             this.parentBarItemFile.Style = Syncfusion.Windows.Forms.VisualStyle.OfficeXP;
@@ -215,16 +229,62 @@
             this.barItemNew.Text = "New";
             this.barItemNew.Click += new System.EventHandler(this.barItemNew_Click);
             // 
-            // parentBarItem1
+            // barItemOpen
             // 
-            this.parentBarItem1.BarName = "parentBarItem1";
-            this.parentBarItem1.ID = "Edit";
-            this.parentBarItem1.MetroColor = System.Drawing.Color.LightSkyBlue;
-            this.parentBarItem1.ShowToolTipInPopUp = false;
-            this.parentBarItem1.SizeToFit = true;
-            this.parentBarItem1.Style = Syncfusion.Windows.Forms.VisualStyle.OfficeXP;
-            this.parentBarItem1.Text = "Edit";
-            this.parentBarItem1.WrapLength = 20;
+            this.barItemOpen.BarName = "barItemOpen";
+            this.barItemOpen.ID = "Open";
+            this.barItemOpen.ShowToolTipInPopUp = false;
+            this.barItemOpen.SizeToFit = true;
+            this.barItemOpen.Text = "Open";
+            this.barItemOpen.Click += new System.EventHandler(this.barItemOpen_Click);
+            // 
+            // barItemSave
+            // 
+            this.barItemSave.BarName = "barItemSave";
+            this.barItemSave.ID = "Save";
+            this.barItemSave.ShowToolTipInPopUp = false;
+            this.barItemSave.SizeToFit = true;
+            this.barItemSave.Text = "Save";
+            this.barItemSave.Click += new System.EventHandler(this.barItemSave_Click);
+            // 
+            // barItemSaveAs
+            // 
+            this.barItemSaveAs.BarName = "barItemSaveAs";
+            this.barItemSaveAs.ID = "SaveAs";
+            this.barItemSaveAs.ShowToolTipInPopUp = false;
+            this.barItemSaveAs.SizeToFit = true;
+            this.barItemSaveAs.Text = "SaveAs";
+            this.barItemSaveAs.Click += new System.EventHandler(this.barItemSaveAs_Click);
+            // 
+            // barItemExit
+            // 
+            this.barItemExit.BarName = "barItemExit";
+            this.barItemExit.ID = "Import TXT";
+            this.barItemExit.ShowToolTipInPopUp = false;
+            this.barItemExit.SizeToFit = true;
+            this.barItemExit.Text = "Exit";
+            // 
+            // parentBarItemEdit
+            // 
+            this.parentBarItemEdit.BarName = "parentBarItemEdit";
+            this.parentBarItemEdit.ID = "Edit";
+            this.parentBarItemEdit.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
+            this.barItemImportFile});
+            this.parentBarItemEdit.MetroColor = System.Drawing.Color.LightSkyBlue;
+            this.parentBarItemEdit.ShowToolTipInPopUp = false;
+            this.parentBarItemEdit.SizeToFit = true;
+            this.parentBarItemEdit.Style = Syncfusion.Windows.Forms.VisualStyle.OfficeXP;
+            this.parentBarItemEdit.Text = "Edit";
+            this.parentBarItemEdit.WrapLength = 20;
+            // 
+            // barItemImportFile
+            // 
+            this.barItemImportFile.BarName = "barItemImportFile";
+            this.barItemImportFile.ID = "Import TXT";
+            this.barItemImportFile.ShowToolTipInPopUp = false;
+            this.barItemImportFile.SizeToFit = true;
+            this.barItemImportFile.Text = "Import TXT";
+            this.barItemImportFile.Click += new System.EventHandler(this.barItemImportFile_Click);
             // 
             // parentBarItem2
             // 
@@ -267,6 +327,8 @@
             // 
             // splitContainerAdv1.Panel1
             // 
+            this.splitContainerAdv1.Panel1.Controls.Add(this.button1);
+            this.splitContainerAdv1.Panel1.Controls.Add(this.listBox1);
             this.splitContainerAdv1.Panel1.Controls.Add(this.documentExplorer1);
             this.splitContainerAdv1.Panel1.Controls.Add(this.treeViewAdv1);
             // 
@@ -278,6 +340,24 @@
             this.splitContainerAdv1.TabIndex = 3;
             this.splitContainerAdv1.Text = "splitContainerAdv1";
             this.splitContainerAdv1.ThemeName = "None";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(13, 164);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(167, 412);
+            this.listBox1.TabIndex = 4;
             // 
             // documentExplorer1
             // 
@@ -293,15 +373,15 @@
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -383,12 +463,12 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config1;
+            this.editControl.Configurator = config2;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
-            this.editControl.ContextPromptBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))));
-            this.editControl.ContextTooltipBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(232)))), ((int)(((byte)(236))))));
+            //this.editControl.ContextPromptBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))));
+            //this.editControl.ContextTooltipBackgroundBrush = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(232)))), ((int)(((byte)(236))))));
             this.editControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editControl.IndicatorMarginBackColor = System.Drawing.Color.Empty;
             this.editControl.LineNumbersColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -523,7 +603,6 @@
             this.toolStripComboBoxExTemplate.MaxLength = 32767;
             this.toolStripComboBoxExTemplate.Name = "toolStripComboBoxExTemplate";
             this.toolStripComboBoxExTemplate.Size = new System.Drawing.Size(121, 25);
-            this.toolStripComboBoxExTemplate.Text = "템플릿 선택";
             this.toolStripComboBoxExTemplate.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxExTemplate_SelectedIndexChanged);
             // 
             // panelCategoryRight
@@ -787,13 +866,13 @@
 
         }
 
-        #endregion
+#endregion
 
         private Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar xpToolBar1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem parentBarItemFile;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemNew;
-        private Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem parentBarItem1;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem parentBarItemEdit;
         private Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem parentBarItem2;
         private Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem parentBarItem3;
         private Syncfusion.Windows.Forms.Tools.SplitContainerAdv splitContainerAdv1;
@@ -834,5 +913,14 @@
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripExCategoryItemMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModify;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
+#if DEBUG
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemSave;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemOpen;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemSaveAs;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemExit;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportFile;
+#endif
     }
 }
