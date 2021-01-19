@@ -54,8 +54,17 @@
     <Reference Include="Syncfusion.Grid.Windows, Version=18.4460.0.32, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Grid.Windows.18.4.0.32\lib\net46\Syncfusion.Grid.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.HighContrastTheme.WinForms, Version=18.4460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.HighContrastTheme.WinForms.18.4.0.34\lib\net46\Syncfusion.HighContrastTheme.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Licensing, Version=18.4460.0.32, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Licensing.18.4.0.32\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=18.4460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Office2016Theme.WinForms.18.4.0.34\lib\net46\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=18.4460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Office2019Theme.WinForms.18.4.0.34\lib\net46\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Base, Version=18.4460.0.32, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Shared.Base.18.4.0.32\lib\net46\Syncfusion.Shared.Base.dll</HintPath>

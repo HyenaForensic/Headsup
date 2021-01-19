@@ -243,7 +243,7 @@ namespace Headup
                     }
                     else // 테이블 이름이 casefilelist가 아니면 케이스 테이블이다.
                     {
-                        SelectedStatusDs.Tables.Add(db.GetDataTableFromDb(tableName, new string[] { "startLine", "endLine", "startColumn", "endColumn", "templateName", "categoryName", "color", "IsGoToDiagram" }));
+                        SelectedStatusDs.Tables.Add(db.GetDataTableFromDb(tableName, new string[] { "startLine", "endLine", "startColumn", "endColumn", "text", "templateName", "categoryName", "color", "IsGoToDiagram" }));
                         CaseCnt++; //가져온 만큼 cnt를 올린다.
                     }
                 }
@@ -343,6 +343,7 @@ namespace Headup
                     dt.Columns.Add("endLine", typeof(Int32));
                     dt.Columns.Add("startColumn", typeof(Int32));
                     dt.Columns.Add("endColumn", typeof(Int32));
+                    dt.Columns.Add("text", typeof(String));
                     dt.Columns.Add("templateName", typeof(String));
                     dt.Columns.Add("categoryName", typeof(String));
                     dt.Columns.Add("color", typeof(Int32));
@@ -385,6 +386,7 @@ namespace Headup
             toolStripComboBoxExTemplate.Items.Clear(); //콤보박스리스트 아이템 삭제
             CurrentSelectedColor = new Color(); //현재 선택되어있는 컬러를 초기화한다.
         }
+
         //private void ResetDbTmpFile() //tmp 파일을 지우고 초기화한다.
         //{
         //    if (File.Exists("status.tmp")) //tmp db 파일이 있으면 지운다.
@@ -686,6 +688,39 @@ namespace Headup
                 return false;
             }
         }
+
+        private void sfButtonDrawDiagram_Click(object sender, EventArgs e) //한꺼번에 다이어그램에 올리는 버튼 클릭 이벤트
+        {
+            if (currentFilePath == "") //로드된 파일이 없는 경우
+            {
+                MessageBox.Show("파일을 먼저 로드하세요");
+            }
+            else //로드된 파일이 있는 경우
+            {
+                if (CurrentDsTableName == "") //연결된 DB가 없는 경우
+                {
+                    MessageBox.Show("연결된 데이터베이스가 없습니다.");
+                }
+                else //연결된 DB가 있는 경우
+                {
+                    if (SelectedStatusDs.Tables[CurrentDsTableName].Rows.Count == 0) //row데이터가 없다면
+                    {
+                        MessageBox.Show("추가할 데이터가 없습니다.");
+                    }
+                    else { //row데이터가 있다면
+                        foreach (DataRow row in SelectedStatusDs.Tables[CurrentDsTableName].Rows) //row데이터만큼 처리
+                        {
+                            if (row["IsGoToDiagram"].ToString() == "False") //아직 다이어그램에 추가되지 않은 데이터라면
+                            {
+                                AddDiagramNode(row["text"].ToString(), 100, 100, Color.FromArgb(Convert.ToInt32(row["color"])));
+                                row["IsGoToDiagram"] = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region 이벤트 처리 다이어그램 관련
@@ -694,27 +729,30 @@ namespace Headup
         {
             if (IsChoiceCategory()) //카테고리 색을 선택한 경우만 처리
             {
-                //ChangeSelectBackColor(); //editControl의 텍스트 백그라운드 색을 변경한다.
-
-                //다이어그램 노드에 추가하기 위해 textbox 객체를 만든다.
-                TextBox txtBox = new TextBox();
-                txtBox.Multiline = true;
-                txtBox.Text = editControl.SelectedText;
-
                 //DragEventArgs에 마우스 포인트가 화면 기준으로 되어 있기 때문에 컨트롤(다이어그램)의 위치를 찾아 그만큼 빼주어야 한다.
                 //e는 화면 기준의 마우스 위치, diagram1.AccessibilityObject.Bounds.Location은 다이어그램 컨트롤 시작 위치, origin은 page위치
                 //그래서 아래와 같이 계산하면 정확한 위치가 나온다.
                 int x = e.X - diagram1.AccessibilityObject.Bounds.Location.X + (int)diagram1.Origin.X;
                 int y = e.Y - diagram1.AccessibilityObject.Bounds.Location.Y + (int)diagram1.Origin.Y;
-
-                ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
-                ctrlnode.HostingControl.BackColor = CurrentSelectedColor;
-                ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
-                diagram1.Model.AppendChild(ctrlnode);
-
-                DataRow row = SelectedStatusDs.Tables[currentDsTableName].Rows[SelectedStatusDs.Tables[currentDsTableName].Rows.Count - 1]; //마지막 선택한 값을 알아와야 하기 때문에 마지막 값을 가져옴
+                AddDiagramNode(editControl.SelectedText, x, y, CurrentSelectedColor); //노드를 추가한다.
+                DataRow row = SelectedStatusDs.Tables[currentDsTableName].Rows[SelectedStatusDs.Tables[currentDsTableName].Rows.Count - 1]; //드래그 드랍으로 추가한 노드는 마지막 값을 알아와 IsGoToDiagram을 true로 변경해야 하기 때문에 마지막 row를 가져옴
                 row["IsGoToDiagram"] = true;
             }
+        }
+
+        private void AddDiagramNode(string text, int x, int y, Color color)
+        {
+            //다이어그램 노드에 추가하기 위해 textbox 객체를 만든다.
+            TextBox txtBox = new TextBox();
+            txtBox.Multiline = true;
+            txtBox.Text = text;
+
+            ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
+            ctrlnode.HostingControl.BackColor = color;
+            ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
+            diagram1.Model.AppendChild(ctrlnode);
+
+            
         }
         #endregion
 
@@ -733,7 +771,7 @@ namespace Headup
                 ChangeSelectBackColor();
                 if (editControl.Selection != null) //선택영역이 있다면, 정상적이라면 그럴일은 없지만 그래도 체크한다.
                 {
-                    SelectedStatusDs.Tables[CurrentDsTableName].Rows.Add(editControl.Selection.Start.VirtualLine, editControl.Selection.End.VirtualLine, editControl.Selection.Start.VirtualColumn, editControl.Selection.End.VirtualColumn, toolStripComboBoxExTemplate.Text, CurrentLabel.Text, CurrentSelectedColor.ToArgb(), false);
+                    SelectedStatusDs.Tables[CurrentDsTableName].Rows.Add(editControl.Selection.Start.VirtualLine, editControl.Selection.End.VirtualLine, editControl.Selection.Start.VirtualColumn, editControl.Selection.End.VirtualColumn, editControl.SelectedText, toolStripComboBoxExTemplate.Text, CurrentLabel.Text, CurrentSelectedColor.ToArgb(), false);
                 }
                 //CoordinatePoint start = new CoordinatePoint();
 
@@ -863,8 +901,9 @@ namespace Headup
 
 
 
+
         #endregion
 
-
+        
     }
 }
