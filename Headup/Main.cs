@@ -11,6 +11,7 @@ using Headup.Util;
 using Syncfusion.Windows.Forms.Tools;
 using System.Data;
 using Syncfusion.Windows.Forms.Edit.Utils;
+using System.Drawing.Drawing2D;
 
 namespace Headup
 {
@@ -203,6 +204,11 @@ namespace Headup
 
         private void InitDiagram() //diagram 초기화
         {
+            this.diagram1.Model.BoundaryConstraintsEnabled = false; //노드가 밖으로 나갈 수 있게 해줌
+            this.diagram1.Model.MinimumSize = new SizeF(800, 400); //최소 크기를 지정해야된다.
+            this.diagram1.Model.SizeToContent = true; //노드 위치에 따라 document 크기를 자동으로 늘어나게 해줌
+            
+
             //TableLayoutManager tlLayout = new TableLayoutManager(this.diagram1.Model, 7, 7);
             //tlLayout.VerticalSpacing = 20;
             //tlLayout.HorizontalSpacing = 20;
