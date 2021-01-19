@@ -751,8 +751,44 @@ namespace Headup
             ctrlnode.HostingControl.BackColor = color;
             ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
             diagram1.Model.AppendChild(ctrlnode);
+        }
+        private void toolStripButtonBezierTool_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("BezierTool");
+        }
 
-            
+        private void toolStripButtonDirectedLineLink_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("DirectedLineLinkTool");
+        }
+
+        private void toolStripButtonLineLink_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("LineLinkTool");
+        }
+
+        private void toolStripButtonOrgLineTool_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("OrgLineConnectorTool");
+        }
+
+        private void toolStripButtonOrthoTool_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("OrthogonalLinkTool");
+        }
+
+        private void toolStripButtonPolyTool_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("PolylineLinkTool");
+        }
+
+        private void toolStripButtonSplineTool_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("SplineTool");
+        }
+        private void SetActiveTool(string toolName)
+        {
+            diagram1.Controller.ActivateTool(toolName);
         }
         #endregion
 
@@ -898,6 +934,7 @@ namespace Headup
             get { return caseCnt; }
             set { caseCnt = value; }
         }
+
 
 
 

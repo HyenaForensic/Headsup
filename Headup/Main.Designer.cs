@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config7 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
-            this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
-            this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
             this.parentBarItemFile = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.barItemNew = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
@@ -59,7 +57,7 @@
             this.panelCategoryMainMain = new System.Windows.Forms.Panel();
             this.flowLayoutPanelCategory = new System.Windows.Forms.FlowLayoutPanel();
             this.panelCategoryMainTop = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripCategory = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
@@ -85,8 +83,17 @@
             this.contextMenuStripExCategoryItemMenu = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             this.toolStripMenuItemModify = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
+            this.toolStripDiagram = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonLineLink = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDirectedLineLink = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOrgLineTool = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOrthoTool = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPolyTool = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSplineTool = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBezierTool = new System.Windows.Forms.ToolStripButton();
+            this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
+            this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).BeginInit();
             this.splitContainerAdv1.Panel1.SuspendLayout();
             this.splitContainerAdv1.Panel2.SuspendLayout();
@@ -104,7 +111,7 @@
             this.panelCategoryMain.SuspendLayout();
             this.panelCategoryMainMain.SuspendLayout();
             this.panelCategoryMainTop.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripCategory.SuspendLayout();
             this.panelCategoryRight.SuspendLayout();
             this.panelCurrentColor.SuspendLayout();
             this.panelCategoryRightTop.SuspendLayout();
@@ -119,65 +126,10 @@
             this.splitContainerAdv3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).BeginInit();
             this.contextMenuStripExCategoryItemMenu.SuspendLayout();
+            this.toolStripDiagram.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // diagram1
-            // 
-            this.diagram1.BackColor = System.Drawing.Color.DarkGray;
-            binding1.DefaultConnector = null;
-            binding1.DefaultNode = null;
-            binding1.Diagram = this.diagram1;
-            binding1.Id = null;
-            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
-            binding1.ParentId = null;
-            this.diagram1.Binding = binding1;
-            this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
-            this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
-            this.diagram1.Controller.PasteOffset = new System.Drawing.SizeF(10F, 10F);
-            this.diagram1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.diagram1.EnableTouchMode = false;
-            this.diagram1.LayoutManager = null;
-            this.diagram1.Location = new System.Drawing.Point(0, 0);
-            this.diagram1.Model = this.model1;
-            this.diagram1.Name = "diagram1";
-            this.diagram1.ScrollVirtualBounds = ((System.Drawing.RectangleF)(resources.GetObject("diagram1.ScrollVirtualBounds")));
-            this.diagram1.Size = new System.Drawing.Size(635, 420);
-            this.diagram1.SmartSizeBox = false;
-            this.diagram1.TabIndex = 0;
-            this.diagram1.Text = "diagram1";
-            // 
-            // 
-            // 
-            this.diagram1.View.ClientRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.diagram1.View.Controller = this.diagram1.Controller;
-            this.diagram1.View.Grid.Color = System.Drawing.Color.LightGray;
-            this.diagram1.View.Grid.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.diagram1.View.Grid.GridStyle = Syncfusion.Windows.Forms.Diagram.GridStyle.Line;
-            this.diagram1.View.Grid.HorizontalSpacing = 20F;
-            this.diagram1.View.Grid.MinPixelSpacing = 4F;
-            this.diagram1.View.Grid.VerticalSpacing = 20F;
-            this.diagram1.View.ScrollVirtualBounds = ((System.Drawing.RectangleF)(resources.GetObject("resource.ScrollVirtualBounds")));
-            this.diagram1.View.ZoomType = Syncfusion.Windows.Forms.Diagram.ZoomType.Center;
-            // 
-            // model1
-            // 
-            this.model1.AlignmentType = Syncfusion.Windows.Forms.Diagram.AlignmentType.SelectedNode;
-            this.model1.BackgroundStyle.HatchBrushStyle = System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal;
-            this.model1.BackgroundStyle.PathBrushStyle = Syncfusion.Windows.Forms.Diagram.PathGradientBrushStyle.CircleLeftTop;
-            this.model1.BackgroundStyle.TextureWrapMode = System.Drawing.Drawing2D.WrapMode.TileFlipX;
-            this.model1.DocumentScale.DisplayName = "No Scale";
-            this.model1.DocumentScale.Height = 1F;
-            this.model1.DocumentScale.Width = 1F;
-            this.model1.DocumentSize.DisplayName = "SameAsPrinter";
-            this.model1.DocumentSize.Height = 1169F;
-            this.model1.DocumentSize.Width = 827F;
-            this.model1.LineStyle.DashPattern = null;
-            this.model1.LineStyle.LineColor = System.Drawing.Color.Black;
-            this.model1.LogicalSize = new System.Drawing.SizeF(827F, 1169F);
-            this.model1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.model1.ShadowStyle.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.model1.ShadowStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             // 
             // xpToolBar1
             // 
@@ -463,7 +415,7 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config7;
+            this.editControl.Configurator = config1;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
@@ -534,27 +486,27 @@
             // 
             // panelCategoryMainTop
             // 
-            this.panelCategoryMainTop.Controls.Add(this.toolStrip1);
+            this.panelCategoryMainTop.Controls.Add(this.toolStripCategory);
             this.panelCategoryMainTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCategoryMainTop.Location = new System.Drawing.Point(0, 0);
             this.panelCategoryMainTop.Name = "panelCategoryMainTop";
             this.panelCategoryMainTop.Size = new System.Drawing.Size(502, 29);
             this.panelCategoryMainTop.TabIndex = 2;
             // 
-            // toolStrip1
+            // toolStripCategory
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNew,
             this.toolStripButtonSave,
             this.toolStripButtonDelete,
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.toolStripComboBoxExTemplate});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(502, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripCategory.Location = new System.Drawing.Point(0, 0);
+            this.toolStripCategory.Name = "toolStripCategory";
+            this.toolStripCategory.Size = new System.Drawing.Size(502, 25);
+            this.toolStripCategory.TabIndex = 0;
+            this.toolStripCategory.Text = "toolStrip1";
             // 
             // toolStripButtonNew
             // 
@@ -737,6 +689,7 @@
             // splitContainerAdv3.Panel1
             // 
             this.splitContainerAdv3.Panel1.Controls.Add(this.diagram1);
+            this.splitContainerAdv3.Panel1.Controls.Add(this.toolStripDiagram);
             // 
             // splitContainerAdv3.Panel2
             // 
@@ -751,7 +704,6 @@
             // 
             this.overviewControl1.BackColor = System.Drawing.Color.Transparent;
             this.overviewControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.overviewControl1.Diagram = this.diagram1;
             this.overviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.overviewControl1.ForeColor = System.Drawing.Color.Red;
             this.overviewControl1.Location = new System.Drawing.Point(0, 0);
@@ -812,6 +764,206 @@
             this.toolStripMenuItemDelete.Text = "삭제";
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
+            // toolStripDiagram
+            // 
+            this.toolStripDiagram.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripDiagram.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.toolStripButtonLineLink,
+            this.toolStripButtonDirectedLineLink,
+            this.toolStripButtonOrgLineTool,
+            this.toolStripButtonOrthoTool,
+            this.toolStripButtonPolyTool,
+            this.toolStripButtonSplineTool,
+            this.toolStripButtonBezierTool});
+            this.toolStripDiagram.Location = new System.Drawing.Point(0, 0);
+            this.toolStripDiagram.Name = "toolStripDiagram";
+            this.toolStripDiagram.Size = new System.Drawing.Size(635, 53);
+            this.toolStripDiagram.TabIndex = 1;
+            this.toolStripDiagram.Text = "toolStrip2";
+            // 
+            // toolStripButtonLineLink
+            // 
+            this.toolStripButtonLineLink.AutoSize = false;
+            this.toolStripButtonLineLink.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonLineLink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonLineLink.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonLineLink.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLineLink.Image")));
+            this.toolStripButtonLineLink.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonLineLink.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLineLink.Name = "toolStripButtonLineLink";
+            this.toolStripButtonLineLink.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonLineLink.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonLineLink.Text = "LineLinkTool";
+            this.toolStripButtonLineLink.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonLineLink.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonLineLink.ToolTipText = "LineLinkTool";
+            this.toolStripButtonLineLink.Click += new System.EventHandler(this.toolStripButtonLineLink_Click);
+            // 
+            // toolStripButtonDirectedLineLink
+            // 
+            this.toolStripButtonDirectedLineLink.AutoSize = false;
+            this.toolStripButtonDirectedLineLink.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonDirectedLineLink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonDirectedLineLink.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDirectedLineLink.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDirectedLineLink.Image")));
+            this.toolStripButtonDirectedLineLink.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonDirectedLineLink.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDirectedLineLink.Name = "toolStripButtonDirectedLineLink";
+            this.toolStripButtonDirectedLineLink.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonDirectedLineLink.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonDirectedLineLink.Text = "DirectedLineLinkTool";
+            this.toolStripButtonDirectedLineLink.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.toolStripButtonDirectedLineLink.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonDirectedLineLink.ToolTipText = "DirectedLineLinkTool";
+            this.toolStripButtonDirectedLineLink.Click += new System.EventHandler(this.toolStripButtonDirectedLineLink_Click);
+            // 
+            // toolStripButtonOrgLineTool
+            // 
+            this.toolStripButtonOrgLineTool.AutoSize = false;
+            this.toolStripButtonOrgLineTool.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonOrgLineTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonOrgLineTool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOrgLineTool.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOrgLineTool.Image")));
+            this.toolStripButtonOrgLineTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonOrgLineTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOrgLineTool.Name = "toolStripButtonOrgLineTool";
+            this.toolStripButtonOrgLineTool.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonOrgLineTool.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonOrgLineTool.Text = "OrgLineConnectorTool";
+            this.toolStripButtonOrgLineTool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonOrgLineTool.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonOrgLineTool.ToolTipText = "OrgLineConnectorTool";
+            this.toolStripButtonOrgLineTool.Click += new System.EventHandler(this.toolStripButtonOrgLineTool_Click);
+            // 
+            // toolStripButtonOrthoTool
+            // 
+            this.toolStripButtonOrthoTool.AutoSize = false;
+            this.toolStripButtonOrthoTool.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonOrthoTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonOrthoTool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOrthoTool.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOrthoTool.Image")));
+            this.toolStripButtonOrthoTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonOrthoTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOrthoTool.Name = "toolStripButtonOrthoTool";
+            this.toolStripButtonOrthoTool.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonOrthoTool.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonOrthoTool.Text = "OrthogonalLinkTool";
+            this.toolStripButtonOrthoTool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonOrthoTool.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonOrthoTool.ToolTipText = "OrthogonalLinkTool";
+            this.toolStripButtonOrthoTool.Click += new System.EventHandler(this.toolStripButtonOrthoTool_Click);
+            // 
+            // toolStripButtonPolyTool
+            // 
+            this.toolStripButtonPolyTool.AutoSize = false;
+            this.toolStripButtonPolyTool.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonPolyTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonPolyTool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPolyTool.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPolyTool.Image")));
+            this.toolStripButtonPolyTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPolyTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPolyTool.Name = "toolStripButtonPolyTool";
+            this.toolStripButtonPolyTool.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonPolyTool.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonPolyTool.Text = "PolyLineLinkTool";
+            this.toolStripButtonPolyTool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonPolyTool.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonPolyTool.ToolTipText = "PolyLineLinkTool";
+            this.toolStripButtonPolyTool.Click += new System.EventHandler(this.toolStripButtonPolyTool_Click);
+            // 
+            // toolStripButtonSplineTool
+            // 
+            this.toolStripButtonSplineTool.AutoSize = false;
+            this.toolStripButtonSplineTool.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonSplineTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonSplineTool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSplineTool.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSplineTool.Image")));
+            this.toolStripButtonSplineTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonSplineTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSplineTool.Name = "toolStripButtonSplineTool";
+            this.toolStripButtonSplineTool.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonSplineTool.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonSplineTool.Text = "SplineTool";
+            this.toolStripButtonSplineTool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonSplineTool.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonSplineTool.ToolTipText = "SplineTool";
+            this.toolStripButtonSplineTool.Click += new System.EventHandler(this.toolStripButtonSplineTool_Click);
+            // 
+            // toolStripButtonBezierTool
+            // 
+            this.toolStripButtonBezierTool.AutoSize = false;
+            this.toolStripButtonBezierTool.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonBezierTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonBezierTool.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBezierTool.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBezierTool.Image")));
+            this.toolStripButtonBezierTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonBezierTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBezierTool.Name = "toolStripButtonBezierTool";
+            this.toolStripButtonBezierTool.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonBezierTool.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonBezierTool.Text = "BezierTool";
+            this.toolStripButtonBezierTool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonBezierTool.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonBezierTool.ToolTipText = "BezierTool";
+            this.toolStripButtonBezierTool.Click += new System.EventHandler(this.toolStripButtonBezierTool_Click);
+            // 
+            // diagram1
+            // 
+            binding1.DefaultConnector = null;
+            binding1.DefaultNode = null;
+            binding1.Diagram = this.diagram1;
+            binding1.Id = null;
+            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
+            binding1.ParentId = null;
+            this.diagram1.Binding = binding1;
+            this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
+            this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
+            this.diagram1.Controller.PasteOffset = new System.Drawing.SizeF(10F, 10F);
+            this.diagram1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.diagram1.EnableTouchMode = false;
+            this.diagram1.LayoutManager = null;
+            this.diagram1.Location = new System.Drawing.Point(0, 53);
+            this.diagram1.Model = this.model1;
+            this.diagram1.Name = "diagram1";
+            this.diagram1.ScrollVirtualBounds = ((System.Drawing.RectangleF)(resources.GetObject("diagram1.ScrollVirtualBounds")));
+            this.diagram1.Size = new System.Drawing.Size(635, 367);
+            this.diagram1.SmartSizeBox = false;
+            this.diagram1.TabIndex = 2;
+            this.diagram1.Text = "diagram1";
+            // 
+            // 
+            // 
+            this.diagram1.View.ClientRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.diagram1.View.Controller = this.diagram1.Controller;
+            this.diagram1.View.Grid.MinPixelSpacing = 4F;
+            this.diagram1.View.ScrollVirtualBounds = ((System.Drawing.RectangleF)(resources.GetObject("resource.ScrollVirtualBounds")));
+            this.diagram1.View.ZoomType = Syncfusion.Windows.Forms.Diagram.ZoomType.Center;
+            this.diagram1.Visible = false;
+            // 
+            // model1
+            // 
+            this.model1.AlignmentType = Syncfusion.Windows.Forms.Diagram.AlignmentType.SelectedNode;
+            this.model1.BackgroundStyle.PathBrushStyle = Syncfusion.Windows.Forms.Diagram.PathGradientBrushStyle.RectangleCenter;
+            this.model1.DocumentScale.DisplayName = "No Scale";
+            this.model1.DocumentScale.Height = 1F;
+            this.model1.DocumentScale.Width = 1F;
+            this.model1.DocumentSize.Height = 1169F;
+            this.model1.DocumentSize.Width = 827F;
+            this.model1.LineStyle.DashPattern = null;
+            this.model1.LineStyle.LineColor = System.Drawing.Color.Black;
+            this.model1.LogicalSize = new System.Drawing.SizeF(827F, 1169F);
+            this.model1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.model1.ShadowStyle.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.model1.ShadowStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(40, 50);
+            this.toolStripLabel2.Text = "Line : ";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -826,8 +978,6 @@
             this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             this.Text = "Headsup";
             this.ThemeName = "";
-            ((System.ComponentModel.ISupportInitialize)(this.diagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.model1)).EndInit();
             this.splitContainerAdv1.Panel1.ResumeLayout(false);
             this.splitContainerAdv1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).EndInit();
@@ -846,8 +996,8 @@
             this.panelCategoryMainMain.ResumeLayout(false);
             this.panelCategoryMainTop.ResumeLayout(false);
             this.panelCategoryMainTop.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripCategory.ResumeLayout(false);
+            this.toolStripCategory.PerformLayout();
             this.panelCategoryRight.ResumeLayout(false);
             this.panelCurrentColor.ResumeLayout(false);
             this.panelCategoryRightTop.ResumeLayout(false);
@@ -858,11 +1008,16 @@
             this.tabControlAdv1.ResumeLayout(false);
             this.tabPageAdvStory.ResumeLayout(false);
             this.splitContainerAdv3.Panel1.ResumeLayout(false);
+            this.splitContainerAdv3.Panel1.PerformLayout();
             this.splitContainerAdv3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv3)).EndInit();
             this.splitContainerAdv3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flowLayout1)).EndInit();
             this.contextMenuStripExCategoryItemMenu.ResumeLayout(false);
+            this.toolStripDiagram.ResumeLayout(false);
+            this.toolStripDiagram.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.model1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -889,8 +1044,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCategory;
         private Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdvStory;
         private Syncfusion.Windows.Forms.Tools.SplitContainerAdv splitContainerAdv3;
-        private Syncfusion.Windows.Forms.Diagram.Controls.Diagram diagram1;
-        private Syncfusion.Windows.Forms.Diagram.Model model1;
         private Syncfusion.Windows.Forms.Diagram.Controls.OverviewControl overviewControl1;
         private System.Windows.Forms.Panel panel2;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabelFilePath;
@@ -904,7 +1057,7 @@
         private System.Windows.Forms.Panel panelCategoryMain;
         private System.Windows.Forms.Panel panelCategoryMainMain;
         private System.Windows.Forms.Panel panelCategoryMainTop;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripCategory;
         private System.Windows.Forms.ToolStripButton toolStripButtonNew;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
@@ -923,6 +1076,17 @@
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemSaveAs;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemExit;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportFile;
+        private System.Windows.Forms.ToolStrip toolStripDiagram;
+        private System.Windows.Forms.ToolStripButton toolStripButtonLineLink;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDirectedLineLink;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOrgLineTool;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOrthoTool;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPolyTool;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSplineTool;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBezierTool;
+        private Syncfusion.Windows.Forms.Diagram.Controls.Diagram diagram1;
+        private Syncfusion.Windows.Forms.Diagram.Model model1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 #endif
     }
 }
