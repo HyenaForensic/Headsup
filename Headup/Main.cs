@@ -204,20 +204,18 @@ namespace Headup
 
         private void InitDiagram() //diagram 초기화
         {
-            this.diagram1.Model.BoundaryConstraintsEnabled = false; //노드가 밖으로 나갈 수 있게 해줌
-            this.diagram1.Model.MinimumSize = new SizeF(800, 400); //최소 크기를 지정해야된다.
-            this.diagram1.Model.SizeToContent = true; //노드 위치에 따라 document 크기를 자동으로 늘어나게 해줌
+            diagram1.Model.BoundaryConstraintsEnabled = false; //노드가 밖으로 나갈 수 있게 해줌
+            diagram1.Model.SizeToContent = true; //노드 위치에 따라 document 크기를 자동으로 늘어나게 해줌
+            diagram1.Model.MinimumSize = new SizeF(800, 600); //최소 크기를 지정해야된다.
             
-
-            //TableLayoutManager tlLayout = new TableLayoutManager(this.diagram1.Model, 7, 7);
-            //tlLayout.VerticalSpacing = 20;
-            //tlLayout.HorizontalSpacing = 20;
-            //tlLayout.CellSizeMode = CellSizeMode.EqualToMaxNode;
-            //tlLayout.Orientation = Orientation.Horizontal;
-            //tlLayout.MaxSize = new SizeF(500, 600);
-            //this.diagram1.LayoutManager = tlLayout;
-
+            //document 크기가 자동으로 움직이기 때문에 최초 노드를 추가하면 0,0 포인트에 들어가서 모양 만들기가 어렵다.
+            //그래서 node하나를 추가하고 visible을 false로 하여 보이지 않는 노드를 최초 하나만들어 자리만 잡는다.
+            TextNode subject = new TextNode("");
+            subject.Visible = false; //이렇게 해야 보이지 않고 자리만 잡힌다.
+            diagram1.Model.AppendChild(subject);
+            diagram1.View.SelectionList.Clear(); //Clear를 안하면 마지막 노드가 선택되어 있는 것처럼 보여서 보기 싫게 보인다.
         }
+        
 
         #endregion
 
@@ -249,7 +247,7 @@ namespace Headup
                     }
                     else // 테이블 이름이 casefilelist가 아니면 케이스 테이블이다.
                     {
-                        SelectedStatusDs.Tables.Add(db.GetDataTableFromDb(tableName, new string[] { "startLine", "endLine", "startColumn", "endColumn", "text", "templateName", "categoryName", "color", "IsGoToDiagram" }));
+                        SelectedStatusDs.Tables.Add(db.GetDataTableFromDb(tableName, new string[] { "startLine", "endLine", "startColumn", "endColumn", "text", "templateName", "categoryName", "categoryIndex", "color", "IsGoToDiagram" }));
                         CaseCnt++; //가져온 만큼 cnt를 올린다.
                     }
                 }
@@ -352,6 +350,7 @@ namespace Headup
                     dt.Columns.Add("text", typeof(String));
                     dt.Columns.Add("templateName", typeof(String));
                     dt.Columns.Add("categoryName", typeof(String));
+                    dt.Columns.Add("categoryIndex", typeof(Int32));
                     dt.Columns.Add("color", typeof(Int32));
                     dt.Columns.Add("IsGoToDiagram", typeof(bool));
                     SelectedStatusDs.Tables.Add(dt);
@@ -427,6 +426,7 @@ namespace Headup
             dt.Columns.Add("path", typeof(string));
             SelectedStatusDs.Tables.Add(dt);
             CurrentCasePath = null;
+            NodeXCnt = new List<int>() { 1,1,1,1 }; //다이어그램 레이어는 4단계이기 때문에 4개를 초기화한다.
         }
         #endregion
 
@@ -557,7 +557,7 @@ namespace Headup
         {
             foreach (System.Windows.Forms.Label label in CategoryItemsLabelList)
             {
-                if (label.Text == CurrentLabel.Text)
+                if (label.Text == CurrentCategoryLabel.Text)
                 {
                     CategoryTemplateDic[toolStripComboBoxExTemplate.Text].Remove(label.Text); //기존 딕셔너리 키는 변경이 어려우니 지운다. (호출부에서 다시 생성한다)
                     label.Text = name;
@@ -570,7 +570,7 @@ namespace Headup
         {
             foreach (System.Windows.Forms.Label label in CategoryItemsLabelList)
             {
-                if (label.Text == CurrentLabel.Text)
+                if (label.Text == CurrentCategoryLabel.Text)
                 {
                     CategoryTemplateDic[toolStripComboBoxExTemplate.Text].Remove(label.Text); //딕셔너리 데이터를 지운다.
                     CategoryItemsLabelList.Remove(label); // 라벨 리스트에 삭제하고자 하는 라벨을 지운다.
@@ -647,15 +647,15 @@ namespace Headup
         }
         private void LabelTmp_MouseClick(object sender, MouseEventArgs e) //카테고리의 색을 선택할 경우
         {
-            CurrentLabel = (System.Windows.Forms.Label)sender;
+            CurrentCategoryLabel = (System.Windows.Forms.Label)sender;
 
             if (e.Button == MouseButtons.Right) //오른쪽 버튼 클릭하면 메뉴 이벤트 발생
             {
-                contextMenuStripExCategoryItemMenu.Show(CurrentLabel, new Point(e.X, e.Y));
+                contextMenuStripExCategoryItemMenu.Show(CurrentCategoryLabel, new Point(e.X, e.Y));
             }
             else if (e.Button == MouseButtons.Left) //왼쪽 버튼 클릭하면 색 변경
             {
-                CurrentSelectedColor = CurrentLabel.BackColor;
+                CurrentSelectedColor = CurrentCategoryLabel.BackColor;
 
             }
         }
@@ -695,6 +695,39 @@ namespace Headup
             }
         }
 
+        #endregion
+
+        #region 다이어그램 관련 이벤트
+
+        private void Diagram1_DragDrop(object sender, DragEventArgs e) //Diagram으로 드래그 앤 드랍을 했을 경우 처리
+        {
+            if (IsChoiceCategory()) //카테고리 색을 선택한 경우만 처리
+            {
+                //DragEventArgs에 마우스 포인트가 화면 기준으로 되어 있기 때문에 컨트롤(다이어그램)의 위치를 찾아 그만큼 빼주어야 한다.
+                //e는 화면 기준의 마우스 위치, diagram1.AccessibilityObject.Bounds.Location은 다이어그램 컨트롤 시작 위치, origin은 page위치
+                //그리고 확대 축소를 할 때마다 데이터가 달라지기 때문에 아래와 같이 계산하면 정확한 위치가 나온다.
+                float scale = diagram1.Magnification / 100; //현재 줌 상태를 확인하여 이렇게 계산한다. (라고 했는데 잘 안됨...ㅡㅡ)
+                int x = (int)((e.X - diagram1.AccessibilityObject.Bounds.Location.X + (int)diagram1.Origin.X) * scale); //x값을 구한다.
+                int y = (int)((e.Y - diagram1.AccessibilityObject.Bounds.Location.Y + (int)diagram1.Origin.Y) * scale); //y값을 구한다.
+                AddDiagramNode(editControl.SelectedText, x, y, CurrentSelectedColor); //노드를 추가한다.
+                DataRow row = SelectedStatusDs.Tables[currentDsTableName].Rows[SelectedStatusDs.Tables[currentDsTableName].Rows.Count - 1]; //드래그 드랍으로 추가한 노드는 마지막 값을 알아와 IsGoToDiagram을 true로 변경해야 하기 때문에 마지막 row를 가져옴
+                row["IsGoToDiagram"] = true;
+            }
+        }
+
+        private void AddDiagramNode(string text, int x, int y, Color color)
+        {
+            //다이어그램 노드에 추가하기 위해 textbox 객체를 만든다.
+            TextBox txtBox = new TextBox();
+            txtBox.Multiline = true;
+            txtBox.Text = text;
+
+            ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
+            ctrlnode.HostingControl.BackColor = color;
+            ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
+            diagram1.Model.AppendChild(ctrlnode);
+            
+        }
         private void sfButtonDrawDiagram_Click(object sender, EventArgs e) //한꺼번에 다이어그램에 올리는 버튼 클릭 이벤트
         {
             if (currentFilePath == "") //로드된 파일이 없는 경우
@@ -713,50 +746,30 @@ namespace Headup
                     {
                         MessageBox.Show("추가할 데이터가 없습니다.");
                     }
-                    else { //row데이터가 있다면
+                    else
+                    { //row데이터가 있다면
                         foreach (DataRow row in SelectedStatusDs.Tables[CurrentDsTableName].Rows) //row데이터만큼 처리
                         {
                             if (row["IsGoToDiagram"].ToString() == "False") //아직 다이어그램에 추가되지 않은 데이터라면
                             {
-                                AddDiagramNode(row["text"].ToString(), 100, 100, Color.FromArgb(Convert.ToInt32(row["color"])));
-                                row["IsGoToDiagram"] = true;
+                                int categoryIndex = Convert.ToInt32(row["categoryIndex"]);
+                                if (categoryIndex < 5)
+                                {
+                                    int x = 200 * NodeXCnt[categoryIndex - 1]; //categoryIndex는 1부터 시작하기 때문에 -1을 해준다.
+                                    NodeXCnt[categoryIndex - 1]++;
+                                    int y = 100 * categoryIndex;
+                                    AddDiagramNode(row["text"].ToString(), x, y, Color.FromArgb(Convert.ToInt32(row["color"])));
+                                    row["IsGoToDiagram"] = true;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("선택된 카테고리는 유효하지 않습니다.(1-4번째 카테고리만 처리 가능");
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-
-        #endregion
-
-        #region 이벤트 처리 다이어그램 관련
-
-        private void Diagram1_DragDrop(object sender, DragEventArgs e) //Diagram으로 드래그 앤 드랍을 했을 경우 처리
-        {
-            if (IsChoiceCategory()) //카테고리 색을 선택한 경우만 처리
-            {
-                //DragEventArgs에 마우스 포인트가 화면 기준으로 되어 있기 때문에 컨트롤(다이어그램)의 위치를 찾아 그만큼 빼주어야 한다.
-                //e는 화면 기준의 마우스 위치, diagram1.AccessibilityObject.Bounds.Location은 다이어그램 컨트롤 시작 위치, origin은 page위치
-                //그래서 아래와 같이 계산하면 정확한 위치가 나온다.
-                int x = e.X - diagram1.AccessibilityObject.Bounds.Location.X + (int)diagram1.Origin.X;
-                int y = e.Y - diagram1.AccessibilityObject.Bounds.Location.Y + (int)diagram1.Origin.Y;
-                AddDiagramNode(editControl.SelectedText, x, y, CurrentSelectedColor); //노드를 추가한다.
-                DataRow row = SelectedStatusDs.Tables[currentDsTableName].Rows[SelectedStatusDs.Tables[currentDsTableName].Rows.Count - 1]; //드래그 드랍으로 추가한 노드는 마지막 값을 알아와 IsGoToDiagram을 true로 변경해야 하기 때문에 마지막 row를 가져옴
-                row["IsGoToDiagram"] = true;
-            }
-        }
-
-        private void AddDiagramNode(string text, int x, int y, Color color)
-        {
-            //다이어그램 노드에 추가하기 위해 textbox 객체를 만든다.
-            TextBox txtBox = new TextBox();
-            txtBox.Multiline = true;
-            txtBox.Text = text;
-
-            ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
-            ctrlnode.HostingControl.BackColor = color;
-            ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
-            diagram1.Model.AppendChild(ctrlnode);
         }
         private void toolStripButtonBezierTool_Click(object sender, EventArgs e)
         {
@@ -808,22 +821,31 @@ namespace Headup
         {
             listBox1.Items.Add("\n EditControl_MouseUp\n");
             listBox1.SelectedIndex = listBox1.Items.Count - 1;
+
             if (editControl.SelectedText.Length > 0 && IsChoiceCategory()) //선택한 영역이 있고, 색을 선택했다면
             {
-                ChangeSelectBackColor();
+                ChangeSelectBackColor(); //먼저 하이라이트된 글자의 백그라운드 색을 변경한다.
                 if (editControl.Selection != null) //선택영역이 있다면, 정상적이라면 그럴일은 없지만 그래도 체크한다.
                 {
-                    SelectedStatusDs.Tables[CurrentDsTableName].Rows.Add(editControl.Selection.Start.VirtualLine, editControl.Selection.End.VirtualLine, editControl.Selection.Start.VirtualColumn, editControl.Selection.End.VirtualColumn, editControl.SelectedText, toolStripComboBoxExTemplate.Text, CurrentLabel.Text, CurrentSelectedColor.ToArgb(), false);
+                    //DS에 저장한다.
+                    SelectedStatusDs.Tables[CurrentDsTableName].Rows.Add(editControl.Selection.Start.VirtualLine, editControl.Selection.End.VirtualLine, editControl.Selection.Start.VirtualColumn, editControl.Selection.End.VirtualColumn, editControl.SelectedText, toolStripComboBoxExTemplate.Text, CurrentCategoryLabel.Text, GetCategoryIndex(CurrentCategoryLabel.Text), CurrentSelectedColor.ToArgb(), false);
                 }
-                //CoordinatePoint start = new CoordinatePoint();
-
-                //editControl.SetSelection(2, 44, 5, 44);
-                //editControl.SetSelectionBackColor();
-
 
             }
         }
-        
+        private int GetCategoryIndex(string categoryName) //index는 1부터 시작이고 0이 리턴되면 잘못된 결과이다.
+        {
+            int i = 1;
+            foreach (System.Windows.Forms.Label categoryNameTmp in categoryItemsLabelList)
+            {
+                if (categoryNameTmp.Text == categoryName)
+                {
+                    return i;
+                }
+                i++;
+            }
+            return 0;
+        }
         
         #endregion
 
@@ -844,8 +866,16 @@ namespace Headup
         private string currentFilePath; //현재 열려있는 txt 파일 경로
         private FileInfo currentCasePath; //연결되어있는 케이스 DB 파일 경로
         private string currentDsTableName;
-        private System.Windows.Forms.Label currentLabel; //다양한 이벤트 시 현재 선택되어 있는 라벨이 무엇인지 확인하기 위한 변수
+        private System.Windows.Forms.Label currentCategoryLabel; //다양한 이벤트 시 현재 선택되어 있는 라벨이 무엇인지 확인하기 위한 변수
         private Color currentSelectedColor; //현재 선택된 카테고리 색
+        private List<int> nodeXCnt; //자동으로 노드를 추가할 때 마지막 위치를 알아내기 위한 리스트(레이어는 4단계이기 때문에 4개 리스트로 초기화한다.)
+
+        public List<int> NodeXCnt
+        {
+            get { return nodeXCnt; }
+            set { nodeXCnt = value; }
+        }
+
 
         public string CurrentDsTableName
         {
@@ -876,10 +906,10 @@ namespace Headup
                 labelFilePath.Text = currentFilePath;
             }
         }
-        public System.Windows.Forms.Label CurrentLabel
+        public System.Windows.Forms.Label CurrentCategoryLabel
         {
-            get { return currentLabel; }
-            set { currentLabel = value; }
+            get { return currentCategoryLabel; }
+            set { currentCategoryLabel = value; }
         }
         public Color CurrentSelectedColor
         {
