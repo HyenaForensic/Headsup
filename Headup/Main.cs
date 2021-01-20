@@ -251,7 +251,10 @@ namespace Headup
                         CaseCnt++; //가져온 만큼 cnt를 올린다.
                     }
                 }
-                SetDsToTree();
+                diagram1.LoadBinary(CurrentCasePath.DirectoryName + @"\" + CurrentCasePath.Name + ".edd");
+                diagram1.Refresh();
+
+                SetDsToTree(); //트리를 만든다.
             }
         }
         private void barItemSave_Click(object sender, EventArgs e) //save 클릭시
@@ -276,7 +279,7 @@ namespace Headup
             {
                 SaveFileDialog saveFile = new SaveFileDialog(); //있던 파일을 덮어쓰기 하면 파일이 삭제되지 않고 데이터까지 덮어써진다. 나중에 수정해야함.
                 saveFile.Filter = "HM Status Files|*.hsf";
-                if (saveFile.ShowDialog() == DialogResult.OK) //파일 오픈
+                if (saveFile.ShowDialog() == DialogResult.OK) //dialog 오픈
                 {
                     CurrentCasePath = new FileInfo(saveFile.FileName);
                     AllDataSetToDb();
@@ -286,7 +289,7 @@ namespace Headup
             {
                 AllDataSetToDb();
             }
-            
+            diagram1.SaveBinary(CurrentCasePath.DirectoryName + @"\" + CurrentCasePath.Name + ".edd"); //무조건 edd파일은 저장한다. 그래서 Save//Save As 상관없는 자리인 여기에서 처리한다.
         }
         private void AllDataSetToDb()
         {
