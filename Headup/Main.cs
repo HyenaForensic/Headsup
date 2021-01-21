@@ -211,7 +211,7 @@ namespace Headup
             diagram1.Model.BoundaryConstraintsEnabled = false; //노드가 밖으로 나갈 수 있게 해줌
             diagram1.Model.SizeToContent = true; //노드 위치에 따라 document 크기를 자동으로 늘어나게 해줌
             diagram1.Model.MinimumSize = new SizeF(800, 600); //최소 크기를 지정해야된다.
-            
+
             //document 크기가 자동으로 움직이기 때문에 최초 노드를 추가하면 0,0 포인트에 들어가서 모양 만들기가 어렵다.
             //그래서 node하나를 추가하고 visible을 false로 하여 보이지 않는 노드를 최초 하나만들어 자리만 잡는다.
             TextNode subject = new TextNode("");
@@ -244,7 +244,7 @@ namespace Headup
                 diagram1.Model.AppendChild(textNodeTmp);
             }
         }
-        
+
 
         #endregion
 
@@ -328,7 +328,7 @@ namespace Headup
             {
                 db.dropTable(tableName);
             }
-                foreach (DataTable dt in SelectedStatusDs.Tables)
+            foreach (DataTable dt in SelectedStatusDs.Tables)
             {
                 Dictionary<string, string> colList = new Dictionary<string, string>();
                 foreach (DataColumn col in dt.Columns) //컬럼 구조 파악
@@ -458,7 +458,7 @@ namespace Headup
             dt.Columns.Add("path", typeof(string));
             SelectedStatusDs.Tables.Add(dt);
             CurrentCasePath = null;
-            NodeXCnt = new List<int>() { 1,1,1,1 }; //다이어그램 레이어는 4단계이기 때문에 4개를 초기화한다.
+            NodeXCnt = new List<int>() { 1, 1, 1, 1 }; //다이어그램 레이어는 4단계이기 때문에 4개를 초기화한다.
             diagramLayerBackgroundList = new List<Syncfusion.Windows.Forms.Diagram.Rectangle>();
         }
         #endregion
@@ -586,7 +586,7 @@ namespace Headup
             labelTmp.Padding = new System.Windows.Forms.Padding(20, 8, 20, 8);
             CategoryItemsLabelList.Add(labelTmp);
         }
-        private void ModifyCategoryItems(string name, Color color) //카테고리 버튼 수정하기
+        private void ModifyCategoryItems(string name, Color color) //카테고리 우클릭 메뉴 버튼 수정하기
         {
             foreach (System.Windows.Forms.Label label in CategoryItemsLabelList)
             {
@@ -599,7 +599,7 @@ namespace Headup
                 }
             }
         }
-        private void DeleteCategoryItems(string name) //카테고리 버튼 삭제하기
+        private void DeleteCategoryItems(string name) //카테고리 우클릭 메뉴 버튼 삭제하기
         {
             foreach (System.Windows.Forms.Label label in CategoryItemsLabelList)
             {
@@ -624,6 +624,23 @@ namespace Headup
                 CategoryItemsLabelList.Clear(); //버튼 리스트를 다 지운다.
                 CategoryView();
                 toolStripComboBoxExTemplate.SelectedIndex = toolStripComboBoxExTemplate.Items.Add(NewTemplateName); ; //템플릿 리스트를 추가하면서 선택한다.
+            }
+        }
+        private void toolStripButtonLoad_Click(object sender, EventArgs e) //카테고리 불러오기 클릭 시
+        {
+            OpenFileDialog openFile1 = new OpenFileDialog();
+            openFile1.Filter = "All Files|*.*";
+
+            if (openFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK) //파일 오픈
+            {
+                Dictionary<string, Dictionary<string, int>> tmpDic = new Dictionary<string, Dictionary<string, int>>();
+                tmpDic = ConvertDic.FileToDic(openFile1.FileName);
+                foreach (KeyValuePair<string, Dictionary<string, int>> tmp in tmpDic)
+                {
+                    CategoryTemplateDic.Add(tmp.Key, tmp.Value);
+                    toolStripComboBoxExTemplate.Items.Add(tmp.Key); //콤보박스 리스트에 템플릿 추가
+                }
+                MessageBox.Show("템플릿 불러오기 성공", "성공", MessageBoxButtons.OK);
             }
         }
         private void toolStripButtonSave_Click(object sender, EventArgs e) //카테고리 저장을 클릭한 경우
@@ -758,7 +775,7 @@ namespace Headup
             ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
             ctrlnode.HostingControl.BackColor = color;
             ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
-            
+
             diagram1.Model.AppendChild(ctrlnode);
         }
         private void sfButtonDrawDiagram_Click(object sender, EventArgs e) //한꺼번에 다이어그램에 올리는 버튼 클릭 이벤트
@@ -880,7 +897,7 @@ namespace Headup
             }
             return 0;
         }
-        
+
         #endregion
 
 
@@ -1019,6 +1036,7 @@ namespace Headup
 
 
         #endregion
+
 
     }
 }
