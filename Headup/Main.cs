@@ -17,6 +17,7 @@ namespace Headup
 {
     public partial class Main : SfForm
     {
+        private int diagramLayerHeight = 180;
         public Main()
         {
             InitializeComponent();
@@ -29,7 +30,6 @@ namespace Headup
         {
             diagram1.DragDrop += Diagram1_DragDrop;
             editControl.MouseUp += EditControl_MouseUp;
-
             #region 이벤트 테스트를 위함
             editControl.ContextChoiceRightClick += EditControl_ContextChoiceRightClick;
             editControl.SelectionChanged += EditControl_SelectionChanged;
@@ -46,6 +46,10 @@ namespace Headup
             editControl.MouseWheel += EditControl_MouseWheel;
             #endregion
         }
+
+
+
+
         #region 이벤트 테스트를 위함
         private void button1_Click(object sender, EventArgs e)
         {
@@ -214,6 +218,31 @@ namespace Headup
             subject.Visible = false; //이렇게 해야 보이지 않고 자리만 잡힌다.
             diagram1.Model.AppendChild(subject);
             diagram1.View.SelectionList.Clear(); //Clear를 안하면 마지막 노드가 선택되어 있는 것처럼 보여서 보기 싫게 보인다.
+
+            //배경을 구현하기 위한 코드
+            for (int i = 0; i < 4; i++)
+            {
+                //배경 색 넣는 부분 (도형을 이용)
+                Syncfusion.Windows.Forms.Diagram.Rectangle rectangleTmp = new Syncfusion.Windows.Forms.Diagram.Rectangle(0, i * diagramLayerHeight, diagram1.View.Width, diagramLayerHeight); //x, y시작점 , 가로,세로 길이
+                //백그라운드 색 지정을 나중에 하면 투명도가 생략되기 때문에 색 지정을 먼저 한다.
+                if (i == 0) { rectangleTmp.FillStyle.Color = System.Drawing.Color.LightBlue; } // 색지정
+                else if (i == 1) { rectangleTmp.FillStyle.Color = System.Drawing.Color.MistyRose; } // 색지정
+                else if (i == 2) { rectangleTmp.FillStyle.Color = System.Drawing.Color.LightYellow; } // 색지정
+                else if (i == 3) { rectangleTmp.FillStyle.Color = System.Drawing.Color.LightGreen; } // 색지정
+                rectangleTmp.FillStyle.ColorAlphaFactor = 100; //투명도 주기
+                rectangleTmp.LineStyle.LineColor = Color.Aqua; //테두리 색 변경
+                rectangleTmp.EditStyle.AllowSelect = false; //선택을 못하게 한다. (그래야 배경이 그대로니까)
+                diagramLayerBackgroundList.Add(rectangleTmp); //나중에 수정을 위해 리스트에 저장
+                diagram1.Model.AppendChild(rectangleTmp);
+
+                //layer에 라벨을 붙이기 위한 코드
+                RectangleF point = new RectangleF(0, i * diagramLayerHeight, 60, 20); //자리 배치
+                TextNode textNodeTmp = new TextNode("Layer " + (i + 1), point);
+                textNodeTmp.FontStyle.Size = 12; //글자 크기 변경
+                textNodeTmp.LineStyle.LineColor = Color.Transparent; //테두리 선 제거
+                textNodeTmp.EditStyle.AllowSelect = false; //선택을 못하게 한다.
+                diagram1.Model.AppendChild(textNodeTmp);
+            }
         }
         
 
@@ -430,6 +459,7 @@ namespace Headup
             SelectedStatusDs.Tables.Add(dt);
             CurrentCasePath = null;
             NodeXCnt = new List<int>() { 1,1,1,1 }; //다이어그램 레이어는 4단계이기 때문에 4개를 초기화한다.
+            diagramLayerBackgroundList = new List<Syncfusion.Windows.Forms.Diagram.Rectangle>();
         }
         #endregion
 
@@ -728,8 +758,8 @@ namespace Headup
             ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
             ctrlnode.HostingControl.BackColor = color;
             ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
-            diagram1.Model.AppendChild(ctrlnode);
             
+            diagram1.Model.AppendChild(ctrlnode);
         }
         private void sfButtonDrawDiagram_Click(object sender, EventArgs e) //한꺼번에 다이어그램에 올리는 버튼 클릭 이벤트
         {
@@ -758,9 +788,10 @@ namespace Headup
                                 int categoryIndex = Convert.ToInt32(row["categoryIndex"]);
                                 if (categoryIndex < 5)
                                 {
-                                    int x = 200 * NodeXCnt[categoryIndex - 1]; //categoryIndex는 1부터 시작하기 때문에 -1을 해준다.
+                                    int x = 200 * (NodeXCnt[categoryIndex - 1] - 1) + 40; //categoryIndex는 1부터 시작하기 때문에 -1을 해준다.
+                                    // 200은 노드끼리의 거리, NodeXCnt[categoryIndex - 1] 마지막 노드, -1 0부터 해야 200*0으로 시작됨, +40 시작점은 40부터 시작
                                     NodeXCnt[categoryIndex - 1]++;
-                                    int y = 100 * categoryIndex;
+                                    int y = (diagramLayerHeight * (categoryIndex - 1)) + 40;
                                     AddDiagramNode(row["text"].ToString(), x, y, Color.FromArgb(Convert.ToInt32(row["color"])));
                                     row["IsGoToDiagram"] = true;
                                 }
@@ -872,6 +903,14 @@ namespace Headup
         private System.Windows.Forms.Label currentCategoryLabel; //다양한 이벤트 시 현재 선택되어 있는 라벨이 무엇인지 확인하기 위한 변수
         private Color currentSelectedColor; //현재 선택된 카테고리 색
         private List<int> nodeXCnt; //자동으로 노드를 추가할 때 마지막 위치를 알아내기 위한 리스트(레이어는 4단계이기 때문에 4개 리스트로 초기화한다.)
+        private List<Syncfusion.Windows.Forms.Diagram.Rectangle> diagramLayerBackgroundList; //다이어그램의 백그라운드를 구분하기 위한 네모 노드 리스트
+
+        public List<Syncfusion.Windows.Forms.Diagram.Rectangle> DiagramLayerBackgroundList
+        {
+            get { return diagramLayerBackgroundList; }
+            set { diagramLayerBackgroundList = value; }
+        }
+
 
         public List<int> NodeXCnt
         {
@@ -978,8 +1017,8 @@ namespace Headup
 
 
 
+
         #endregion
 
-        
     }
 }

@@ -167,6 +167,7 @@
             this.diagram1.View.Grid.HorizontalSpacing = 20F;
             this.diagram1.View.Grid.MinPixelSpacing = 4F;
             this.diagram1.View.Grid.VerticalSpacing = 20F;
+            this.diagram1.View.Grid.Visible = false;
             this.diagram1.View.ScrollVirtualBounds = ((System.Drawing.RectangleF)(resources.GetObject("resource.ScrollVirtualBounds")));
             this.diagram1.View.ZoomType = Syncfusion.Windows.Forms.Diagram.ZoomType.Center;
             // 
@@ -182,7 +183,7 @@
             this.model1.LineStyle.DashPattern = null;
             this.model1.LineStyle.LineColor = System.Drawing.Color.Black;
             this.model1.LogicalSize = new System.Drawing.SizeF(396.8504F, 566.9291F);
-            this.model1.Padding = new System.Windows.Forms.Padding(0);
+            this.model1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.model1.ShadowStyle.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.model1.ShadowStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             // 
