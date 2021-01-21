@@ -199,11 +199,10 @@ namespace Headup
                 MessageBox.Show("xml 파일이 없습니다.");
             }
 
-
             //editControl의 상태표시줄 설정
-            this.editControl.StatusBarSettings.Visible = true; // Shows the built-in status bar.
-            this.editControl.StatusBarSettings.TextPanel.Visible = true; // Enable the TextPanel in the StatusBar.
-            this.editControl.StatusBarSettings.GripVisibility = Syncfusion.Windows.Forms.Edit.Enums.SizingGripVisibility.Visible; // Set the visibility of the status bar sizing grip.
+            //editControl.StatusBarSettings.Visible = true; // Shows the built-in status bar.
+            //editControl.StatusBarSettings.TextPanel.Visible = true; // Enable the TextPanel in the StatusBar.
+            //editControl.StatusBarSettings.GripVisibility = Syncfusion.Windows.Forms.Edit.Enums.SizingGripVisibility.Visible; // Set the visibility of the status bar sizing grip.
         }
 
         private void InitDiagram() //diagram 초기화
@@ -962,7 +961,9 @@ namespace Headup
             set
             {
                 currentFilePath = value;
-                labelFilePath.Text = currentFilePath;
+                FileInfo tmp = new FileInfo(currentFilePath);
+                labelFilePath.Text = tmp.Name;
+                editControl.StatusBarSettings.TextPanel.Panel.Text = tmp.FullName;
             }
         }
         public System.Windows.Forms.Label CurrentCategoryLabel

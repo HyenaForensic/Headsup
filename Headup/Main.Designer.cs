@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -134,13 +134,13 @@
             // 
             // diagram1
             // 
-            binding2.DefaultConnector = null;
-            binding2.DefaultNode = null;
-            binding2.Diagram = this.diagram1;
-            binding2.Id = null;
-            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
-            binding2.ParentId = null;
-            this.diagram1.Binding = binding2;
+            binding1.DefaultConnector = null;
+            binding1.DefaultNode = null;
+            binding1.Diagram = this.diagram1;
+            binding1.Id = null;
+            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
+            binding1.ParentId = null;
+            this.diagram1.Binding = binding1;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -382,15 +382,15 @@
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -472,7 +472,7 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config2;
+            this.editControl.Configurator = config1;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
@@ -494,14 +494,27 @@
             this.editControl.ShowSelectionMargin = false;
             this.editControl.ShowVerticalSplitters = false;
             this.editControl.Size = new System.Drawing.Size(572, 443);
-            this.editControl.StatusBarSettings.CoordsPanel.Width = 150;
-            this.editControl.StatusBarSettings.EncodingPanel.Width = 100;
-            this.editControl.StatusBarSettings.FileNamePanel.Width = 100;
-            this.editControl.StatusBarSettings.InsertPanel.Width = 33;
+            this.editControl.StatusBarSettings.CoordsPanel.AutoSize = true;
+            this.editControl.StatusBarSettings.CoordsPanel.MinWidth = 100;
+            this.editControl.StatusBarSettings.CoordsPanel.Width = 174;
+            this.editControl.StatusBarSettings.EncodingPanel.AutoSize = true;
+            this.editControl.StatusBarSettings.EncodingPanel.MinWidth = 100;
+            this.editControl.StatusBarSettings.EncodingPanel.Width = 98;
+            this.editControl.StatusBarSettings.FileNamePanel.AutoSize = true;
+            this.editControl.StatusBarSettings.FileNamePanel.MinWidth = 100;
+            this.editControl.StatusBarSettings.FileNamePanel.Visible = false;
+            this.editControl.StatusBarSettings.FileNamePanel.Width = 71;
+            this.editControl.StatusBarSettings.GripVisibility = Syncfusion.Windows.Forms.Edit.Enums.SizingGripVisibility.Hidden;
+            this.editControl.StatusBarSettings.InsertPanel.AutoSize = true;
+            this.editControl.StatusBarSettings.InsertPanel.Visible = false;
+            this.editControl.StatusBarSettings.InsertPanel.Width = 29;
             this.editControl.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
             this.editControl.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
-            this.editControl.StatusBarSettings.StatusPanel.Width = 70;
+            this.editControl.StatusBarSettings.StatusPanel.AutoSize = true;
+            this.editControl.StatusBarSettings.StatusPanel.Width = 67;
+            this.editControl.StatusBarSettings.TextPanel.MinWidth = 100;
             this.editControl.StatusBarSettings.TextPanel.Width = 214;
+            this.editControl.StatusBarSettings.Visible = true;
             this.editControl.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Default;
             this.editControl.TabIndex = 0;
             this.editControl.Text = "";
@@ -694,18 +707,18 @@
             // 
             // autoLabelFilePath
             // 
-            this.autoLabelFilePath.DX = -41;
+            this.autoLabelFilePath.DX = -53;
             this.autoLabelFilePath.LabeledControl = this.labelFilePath;
-            this.autoLabelFilePath.Location = new System.Drawing.Point(7, 10);
+            this.autoLabelFilePath.Location = new System.Drawing.Point(8, 10);
             this.autoLabelFilePath.Name = "autoLabelFilePath";
-            this.autoLabelFilePath.Size = new System.Drawing.Size(37, 12);
+            this.autoLabelFilePath.Size = new System.Drawing.Size(49, 12);
             this.autoLabelFilePath.TabIndex = 1;
-            this.autoLabelFilePath.Text = "경로 :";
+            this.autoLabelFilePath.Text = "파일명 :";
             // 
             // labelFilePath
             // 
             this.labelFilePath.AutoSize = true;
-            this.labelFilePath.Location = new System.Drawing.Point(48, 10);
+            this.labelFilePath.Location = new System.Drawing.Point(61, 10);
             this.labelFilePath.Name = "labelFilePath";
             this.labelFilePath.Size = new System.Drawing.Size(0, 12);
             this.labelFilePath.TabIndex = 0;
