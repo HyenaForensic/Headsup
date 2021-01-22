@@ -12,12 +12,12 @@ using Syncfusion.Windows.Forms.Tools;
 using System.Data;
 using Syncfusion.Windows.Forms.Edit.Utils;
 using System.Drawing.Drawing2D;
+using Syncfusion.Windows.Forms;
 
 namespace Headup
 {
     public partial class Main : SfForm
     {
-        private int diagramLayerHeight = 180;
         public Main()
         {
             InitializeComponent();
@@ -29,6 +29,8 @@ namespace Headup
         private void EventSet()
         {
             diagram1.DragDrop += Diagram1_DragDrop;
+            diagram1.EventSink.NodeMouseEnter += EventSink_NodeMouseEnter;
+            diagram1.EventSink.NodeMouseLeave += EventSink_NodeMouseLeave;
             editControl.MouseUp += EditControl_MouseUp;
             #region 이벤트 테스트를 위함
             editControl.ContextChoiceRightClick += EditControl_ContextChoiceRightClick;
@@ -46,8 +48,6 @@ namespace Headup
             editControl.MouseWheel += EditControl_MouseWheel;
             #endregion
         }
-
-
 
 
         #region 이벤트 테스트를 위함
@@ -459,6 +459,7 @@ namespace Headup
             CurrentCasePath = null;
             NodeXCnt = new List<int>() { 1, 1, 1, 1 }; //다이어그램 레이어는 4단계이기 때문에 4개를 초기화한다.
             diagramLayerBackgroundList = new List<Syncfusion.Windows.Forms.Diagram.Rectangle>();
+            sfToolTip = new SfToolTip();
         }
         #endregion
 
@@ -747,7 +748,34 @@ namespace Headup
         #endregion
 
         #region 다이어그램 관련 이벤트
+        private void EventSink_NodeMouseLeave(NodeMouseEventArgs evtArgs) //노드에서 마우스를 떼면 툴팁을 사라지게 한다.
+        {
+            listBox1.Items.Add("\n EventSink_NodeMouseLeave\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
 
+            sfToolTip.Hide(); //툴팁을 숨긴다.
+        }
+
+        private void EventSink_NodeMouseEnter(NodeMouseEventArgs evtArgs) //노드에서 마우스를 올리면 툴팁이 활성화된다.
+        {
+            listBox1.Items.Add("\n EventSink_NodeMouseEnter\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+
+            if (evtArgs.Node.ToolTipText != "") //툴팁 텍스트가 있을 경우만
+            {
+                Syncfusion.WinForms.Controls.ToolTipInfo toolTipInfo = new Syncfusion.WinForms.Controls.ToolTipInfo();
+                toolTipInfo.MaxWidth = 800; //최대 가로길이 설정
+                toolTipInfo.ToolTipStyle = Syncfusion.WinForms.Controls.Enums.ToolTipStyle.Balloon; //말꼬리 타입으로 변경
+                //toolTipInfo.BeakBackColor = evtArgs.Node.
+
+                ToolTipItem toolTipItem = new ToolTipItem();
+                toolTipItem.Text = evtArgs.Node.ToolTipText; //툴팁 텍스트를 정의한다.
+                toolTipItem.Style.Font = new Font("Gulim", 12); //폰트를 변경한다.
+
+                toolTipInfo.Items.Add(toolTipItem); //텍스트를 인포에 추가
+                sfToolTip.Show(toolTipInfo); //툴팁을 보이게 한다.
+            }
+        }
         private void Diagram1_DragDrop(object sender, DragEventArgs e) //Diagram으로 드래그 앤 드랍을 했을 경우 처리
         {
             if (IsChoiceCategory()) //카테고리 색을 선택한 경우만 처리
@@ -766,17 +794,25 @@ namespace Headup
 
         private void AddDiagramNode(string text, int x, int y, Color color)
         {
-            //다이어그램 노드에 추가하기 위해 textbox 객체를 만든다.
-            TextBox txtBox = new TextBox();
-            txtBox.Multiline = true;
-            txtBox.Text = text;
+            string subText = text;
+            if (subText.Length > 32) //32글자 이상이 되면 ...으로 자른다.
+            {
+                subText = subText.Substring(0, 32) + "...";
+            }
+            TextNode textNode = new TextNode(subText, new RectangleF(x, y, 140, 50)); //노드 생성
+            textNode.BackgroundStyle.Color = color; //배경 색 변경 (그라데이션 끝부분)
+            textNode.BackgroundStyle.ForeColor = Color.White; // 그라데이션 시작부분
+            textNode.BackgroundStyle.Type = FillStyleType.LinearGradient; //그라데이션으로 처리
 
-            ControlNode ctrlnode = new ControlNode(txtBox, new RectangleF(x, y, 140, 50));
-            ctrlnode.HostingControl.BackColor = color;
-            ctrlnode.ActivateStyle = Syncfusion.Windows.Forms.Diagram.ActivateStyle.ClickPassThrough;
+            textNode.ToolTipText = text; //툴팁 텍스트 설정
+            textNode.FontStyle.Size = 9; //텍스트 크기 변경
+            //textNode.FontStyle.Family = "Gulim"; //텍스트 글꼴 변경
+            textNode.HorizontalAlignment = StringAlignment.Center; //가로 가운데 정렬
+            textNode.VerticalAlignment = StringAlignment.Center; //세로 위부터
 
-            diagram1.Model.AppendChild(ctrlnode);
+            diagram1.Model.AppendChild(textNode);
         }
+        
         private void sfButtonDrawDiagram_Click(object sender, EventArgs e) //한꺼번에 다이어그램에 올리는 버튼 클릭 이벤트
         {
             if (currentFilePath == "") //로드된 파일이 없는 경우
@@ -821,6 +857,7 @@ namespace Headup
                 }
             }
         }
+        #region 다이어그램 메뉴 설정
         private void toolStripButtonBezierTool_Click(object sender, EventArgs e)
         {
             SetActiveTool("BezierTool");
@@ -859,6 +896,8 @@ namespace Headup
         {
             diagram1.Controller.ActivateTool(toolName);
         }
+        #endregion
+
         #endregion
 
         #region EditControl 관련 및 이벤트 처리
@@ -901,7 +940,8 @@ namespace Headup
 
 
         #region 변수 선언
-
+        private SfToolTip sfToolTip; //다이어그램의 노드 툴팁
+        private int diagramLayerHeight = 180; //다이어그램의 레이어 높이
         private static Color blockColorFromAddForm; //텍스트의 블록색 저장 변수
         private static string categoryNameFromAddForm; //AddCategory 폼에서 이름을 가져오기 위한 static 변수
         private static bool selectedColorFlagFromAddForm = false;
@@ -926,15 +966,11 @@ namespace Headup
             get { return diagramLayerBackgroundList; }
             set { diagramLayerBackgroundList = value; }
         }
-
-
         public List<int> NodeXCnt
         {
             get { return nodeXCnt; }
             set { nodeXCnt = value; }
         }
-
-
         public string CurrentDsTableName
         {
             get { return currentDsTableName; }
@@ -945,7 +981,6 @@ namespace Headup
             get { return currentCasePath; }
             set { currentCasePath = value; }
         }
-
         public string Ducument
         {
             get { return ducument; }
@@ -1030,14 +1065,6 @@ namespace Headup
             get { return caseCnt; }
             set { caseCnt = value; }
         }
-
-
-
-
-
-
         #endregion
-
-
     }
 }
