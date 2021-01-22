@@ -32,7 +32,7 @@
             Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config11 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -482,7 +482,7 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config11;
+            this.editControl.Configurator = config1;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;

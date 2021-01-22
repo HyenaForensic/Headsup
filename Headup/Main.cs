@@ -211,12 +211,20 @@ namespace Headup
             diagram1.Model.SizeToContent = true; //노드 위치에 따라 document 크기를 자동으로 늘어나게 해줌
             diagram1.Model.MinimumSize = new SizeF(800, 600); //최소 크기를 지정해야된다.
 
+            //라인이 크로스 되는 경우 처리
+            diagram1.Model.LineBridgeSize = 20; //넘어가는 크기 U모양 크기(?)
+            diagram1.Model.LineBridgingEnabled = true; //브릿지 설정
+            diagram1.Model.BridgeStyle = BridgeStyle.Square; //브릿지 스타일
+
+            
+
             //document 크기가 자동으로 움직이기 때문에 최초 노드를 추가하면 0,0 포인트에 들어가서 모양 만들기가 어렵다.
             //그래서 node하나를 추가하고 visible을 false로 하여 보이지 않는 노드를 최초 하나만들어 자리만 잡는다.
             TextNode subject = new TextNode("");
             subject.Visible = false; //이렇게 해야 보이지 않고 자리만 잡힌다.
             diagram1.Model.AppendChild(subject);
             diagram1.View.SelectionList.Clear(); //Clear를 안하면 마지막 노드가 선택되어 있는 것처럼 보여서 보기 싫게 보인다.
+
 
             //배경을 구현하기 위한 코드
             for (int i = 0; i < 4; i++)
@@ -953,7 +961,10 @@ namespace Headup
         private void SetActiveTool(string toolName)
         {
             diagram1.Controller.ActivateTool(toolName);
+            
         }
+
+
         #endregion
 
         #endregion
