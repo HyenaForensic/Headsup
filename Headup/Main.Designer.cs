@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config11 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -80,7 +80,7 @@
             this.tabPageAdvStory = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.splitContainerAdv3 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
             this.toolStripDiagram = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabelLine = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonLineLink = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDirectedLineLink = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOrgLineTool = new System.Windows.Forms.ToolStripButton();
@@ -95,6 +95,17 @@
             this.contextMenuStripExCategoryItemMenu = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             this.toolStripMenuItemModify = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabelNode = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonRectangle = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEllipse = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRoundRect = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPolygon = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSemiCircle = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCircularArc = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBitmap = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonText = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRichText = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).BeginInit();
@@ -134,13 +145,13 @@
             // 
             // diagram1
             // 
-            binding2.DefaultConnector = null;
-            binding2.DefaultNode = null;
-            binding2.Diagram = this.diagram1;
-            binding2.Id = null;
-            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
-            binding2.ParentId = null;
-            this.diagram1.Binding = binding2;
+            binding1.DefaultConnector = null;
+            binding1.DefaultNode = null;
+            binding1.Diagram = this.diagram1;
+            binding1.Id = null;
+            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
+            binding1.ParentId = null;
+            this.diagram1.Binding = binding1;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -381,15 +392,15 @@
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -471,7 +482,7 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config2;
+            this.editControl.Configurator = config11;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
@@ -784,25 +795,37 @@
             // 
             this.toolStripDiagram.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripDiagram.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
+            this.toolStripLabelLine,
             this.toolStripButtonLineLink,
             this.toolStripButtonDirectedLineLink,
             this.toolStripButtonOrgLineTool,
             this.toolStripButtonOrthoTool,
             this.toolStripButtonPolyTool,
             this.toolStripButtonSplineTool,
-            this.toolStripButtonBezierTool});
+            this.toolStripButtonBezierTool,
+            this.toolStripSeparator2,
+            this.toolStripLabelNode,
+            this.toolStripButtonRectangle,
+            this.toolStripButtonEllipse,
+            this.toolStripButtonRoundRect,
+            this.toolStripButtonPolygon,
+            this.toolStripButtonSemiCircle,
+            this.toolStripButtonCircularArc,
+            this.toolStripButtonBitmap,
+            this.toolStripButtonText,
+            this.toolStripButtonRichText});
             this.toolStripDiagram.Location = new System.Drawing.Point(0, 0);
             this.toolStripDiagram.Name = "toolStripDiagram";
             this.toolStripDiagram.Size = new System.Drawing.Size(635, 53);
             this.toolStripDiagram.TabIndex = 1;
             this.toolStripDiagram.Text = "toolStrip2";
+            this.toolStripDiagram.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripDiagram_ItemClicked);
             // 
-            // toolStripLabel2
+            // toolStripLabelLine
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(40, 50);
-            this.toolStripLabel2.Text = "Line : ";
+            this.toolStripLabelLine.Name = "toolStripLabelLine";
+            this.toolStripLabelLine.Size = new System.Drawing.Size(40, 50);
+            this.toolStripLabelLine.Text = "Line : ";
             // 
             // toolStripButtonLineLink
             // 
@@ -995,6 +1018,168 @@
             this.toolStripMenuItemDelete.Text = "삭제";
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 53);
+            // 
+            // toolStripLabelNode
+            // 
+            this.toolStripLabelNode.Name = "toolStripLabelNode";
+            this.toolStripLabelNode.Size = new System.Drawing.Size(43, 50);
+            this.toolStripLabelNode.Text = "Node :";
+            // 
+            // toolStripButtonRectangle
+            // 
+            this.toolStripButtonRectangle.AutoSize = false;
+            this.toolStripButtonRectangle.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonRectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRectangle.Image")));
+            this.toolStripButtonRectangle.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRectangle.Name = "toolStripButtonRectangle";
+            this.toolStripButtonRectangle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonRectangle.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonRectangle.Text = "toolStripButton1";
+            this.toolStripButtonRectangle.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonRectangle.ToolTipText = "Rectangle";
+            this.toolStripButtonRectangle.Click += new System.EventHandler(this.toolStripButtonRectangle_Click);
+            // 
+            // toolStripButtonEllipse
+            // 
+            this.toolStripButtonEllipse.AutoSize = false;
+            this.toolStripButtonEllipse.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonEllipse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEllipse.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEllipse.Image")));
+            this.toolStripButtonEllipse.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEllipse.Name = "toolStripButtonEllipse";
+            this.toolStripButtonEllipse.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonEllipse.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonEllipse.Text = "toolStripButton2";
+            this.toolStripButtonEllipse.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonEllipse.ToolTipText = "Ellipse";
+            this.toolStripButtonEllipse.Click += new System.EventHandler(this.toolStripButtonEllipse_Click);
+            // 
+            // toolStripButtonRoundRect
+            // 
+            this.toolStripButtonRoundRect.AutoSize = false;
+            this.toolStripButtonRoundRect.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonRoundRect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonRoundRect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRoundRect.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRoundRect.Image")));
+            this.toolStripButtonRoundRect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonRoundRect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRoundRect.Name = "toolStripButtonRoundRect";
+            this.toolStripButtonRoundRect.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonRoundRect.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonRoundRect.Text = "toolStripButton3";
+            this.toolStripButtonRoundRect.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonRoundRect.ToolTipText = "RoundRect";
+            this.toolStripButtonRoundRect.Click += new System.EventHandler(this.toolStripButtonRoundRect_Click);
+            // 
+            // toolStripButtonPolygon
+            // 
+            this.toolStripButtonPolygon.AutoSize = false;
+            this.toolStripButtonPolygon.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonPolygon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonPolygon.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPolygon.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPolygon.Image")));
+            this.toolStripButtonPolygon.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPolygon.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPolygon.Name = "toolStripButtonPolygon";
+            this.toolStripButtonPolygon.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonPolygon.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonPolygon.Text = "toolStripButton4";
+            this.toolStripButtonPolygon.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonPolygon.ToolTipText = "Polygon";
+            this.toolStripButtonPolygon.Click += new System.EventHandler(this.toolStripButtonPolygon_Click);
+            // 
+            // toolStripButtonSemiCircle
+            // 
+            this.toolStripButtonSemiCircle.AutoSize = false;
+            this.toolStripButtonSemiCircle.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonSemiCircle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonSemiCircle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSemiCircle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSemiCircle.Image")));
+            this.toolStripButtonSemiCircle.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonSemiCircle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSemiCircle.Name = "toolStripButtonSemiCircle";
+            this.toolStripButtonSemiCircle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonSemiCircle.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonSemiCircle.Text = "toolStripButton5";
+            this.toolStripButtonSemiCircle.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonSemiCircle.ToolTipText = "SemiCircle";
+            this.toolStripButtonSemiCircle.Click += new System.EventHandler(this.toolStripButtonSemiCircle_Click);
+            // 
+            // toolStripButtonCircularArc
+            // 
+            this.toolStripButtonCircularArc.AutoSize = false;
+            this.toolStripButtonCircularArc.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonCircularArc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonCircularArc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCircularArc.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCircularArc.Image")));
+            this.toolStripButtonCircularArc.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonCircularArc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCircularArc.Name = "toolStripButtonCircularArc";
+            this.toolStripButtonCircularArc.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonCircularArc.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonCircularArc.Text = "toolStripButton6";
+            this.toolStripButtonCircularArc.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonCircularArc.ToolTipText = "CircularArc";
+            this.toolStripButtonCircularArc.Click += new System.EventHandler(this.toolStripButtonCircularArc_Click);
+            // 
+            // toolStripButtonBitmap
+            // 
+            this.toolStripButtonBitmap.AutoSize = false;
+            this.toolStripButtonBitmap.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonBitmap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonBitmap.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBitmap.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBitmap.Image")));
+            this.toolStripButtonBitmap.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonBitmap.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBitmap.Name = "toolStripButtonBitmap";
+            this.toolStripButtonBitmap.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonBitmap.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButtonBitmap.Text = "toolStripButton7";
+            this.toolStripButtonBitmap.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonBitmap.ToolTipText = "Bitmap";
+            this.toolStripButtonBitmap.Click += new System.EventHandler(this.toolStripButtonBitmap_Click);
+            // 
+            // toolStripButtonText
+            // 
+            this.toolStripButtonText.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonText.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonText.Image")));
+            this.toolStripButtonText.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonText.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonText.Name = "toolStripButtonText";
+            this.toolStripButtonText.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonText.Size = new System.Drawing.Size(46, 36);
+            this.toolStripButtonText.Text = "toolStripButton8";
+            this.toolStripButtonText.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonText.ToolTipText = "Text";
+            this.toolStripButtonText.Click += new System.EventHandler(this.toolStripButtonText_Click);
+            // 
+            // toolStripButtonRichText
+            // 
+            this.toolStripButtonRichText.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButtonRichText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButtonRichText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRichText.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRichText.Image")));
+            this.toolStripButtonRichText.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonRichText.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRichText.Name = "toolStripButtonRichText";
+            this.toolStripButtonRichText.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripButtonRichText.Size = new System.Drawing.Size(46, 36);
+            this.toolStripButtonRichText.Text = "toolStripButton9";
+            this.toolStripButtonRichText.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.toolStripButtonRichText.ToolTipText = "RichText";
+            this.toolStripButtonRichText.Click += new System.EventHandler(this.toolStripButtonRichText_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1116,9 +1301,20 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBezierTool;
         private Syncfusion.Windows.Forms.Diagram.Controls.Diagram diagram1;
         private Syncfusion.Windows.Forms.Diagram.Model model1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelLine;
         private Syncfusion.Windows.Forms.Diagram.Controls.OverviewControl overviewControl1;
         private System.Windows.Forms.ToolStripButton toolStripButtonLoad;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelNode;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRectangle;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEllipse;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRoundRect;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPolygon;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSemiCircle;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCircularArc;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBitmap;
+        private System.Windows.Forms.ToolStripButton toolStripButtonText;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRichText;
 #endif
     }
 }

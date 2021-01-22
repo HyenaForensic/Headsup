@@ -765,8 +765,7 @@ namespace Headup
             {
                 Syncfusion.WinForms.Controls.ToolTipInfo toolTipInfo = new Syncfusion.WinForms.Controls.ToolTipInfo();
                 toolTipInfo.MaxWidth = 800; //최대 가로길이 설정
-                toolTipInfo.ToolTipStyle = Syncfusion.WinForms.Controls.Enums.ToolTipStyle.Balloon; //말꼬리 타입으로 변경
-                //toolTipInfo.BeakBackColor = evtArgs.Node.
+                //toolTipInfo.ToolTipStyle = Syncfusion.WinForms.Controls.Enums.ToolTipStyle.Balloon; //말풍선 타입으로 변경
 
                 ToolTipItem toolTipItem = new ToolTipItem();
                 toolTipItem.Text = evtArgs.Node.ToolTipText; //툴팁 텍스트를 정의한다.
@@ -858,6 +857,18 @@ namespace Headup
             }
         }
         #region 다이어그램 메뉴 설정
+        private void toolStripDiagram_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //ToolStrip tool = sender as ToolStrip;
+            //foreach (ToolStripButton selecteditem in tool.Items)
+            //{
+            //    if (selecteditem.BackColor == Color.LightBlue)
+            //    {
+            //        selecteditem.BackColor = System.Drawing.Color.Transparent;
+            //    }
+            //}
+            //e.ClickedItem.BackColor = Color.LightBlue;
+        }
         private void toolStripButtonBezierTool_Click(object sender, EventArgs e)
         {
             SetActiveTool("BezierTool");
@@ -891,6 +902,53 @@ namespace Headup
         private void toolStripButtonSplineTool_Click(object sender, EventArgs e)
         {
             SetActiveTool("SplineTool");
+        }
+        private void toolStripButtonRectangle_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("RectangleTool");
+        }
+
+        private void toolStripButtonEllipse_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("EllipseTool");
+        }
+
+        private void toolStripButtonRoundRect_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("RoundRectTool");
+        }
+
+        private void toolStripButtonPolygon_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("PolygonTool");
+        }
+
+        private void toolStripButtonSemiCircle_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("SemiCircleTool");
+        }
+
+        private void toolStripButtonCircularArc_Click(object sender, EventArgs e)
+        {
+            CircularArc carc = new CircularArc(new RectangleF(300, 300, 100, 70));
+            // set your custom node to the NodeToInsert property
+            this.diagram1.Controller.NodeToInsert = carc;
+            SetActiveTool("InsertNodeTool");
+        }
+
+        private void toolStripButtonBitmap_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("BitmapTool");
+        }
+
+        private void toolStripButtonText_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("TextTool");
+        }
+
+        private void toolStripButtonRichText_Click(object sender, EventArgs e)
+        {
+            SetActiveTool("RichTextTool");
         }
         private void SetActiveTool(string toolName)
         {
@@ -1066,5 +1124,9 @@ namespace Headup
             set { caseCnt = value; }
         }
         #endregion
+
+        
+
+        
     }
 }
