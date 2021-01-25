@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Diagram.Binding binding1 = new Syncfusion.Windows.Forms.Diagram.Binding();
+            Syncfusion.Windows.Forms.Diagram.Binding binding2 = new Syncfusion.Windows.Forms.Diagram.Binding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo1 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo treeNodeAdvStyleInfo2 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdvStyleInfo();
+            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.diagram1 = new Syncfusion.Windows.Forms.Diagram.Controls.Diagram(this.components);
             this.model1 = new Syncfusion.Windows.Forms.Diagram.Model(this.components);
             this.xpToolBar1 = new Syncfusion.Windows.Forms.Tools.XPMenus.XPToolBar();
@@ -52,8 +52,6 @@
             this.parentBarItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainerAdv1 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.documentExplorer1 = new Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer();
             this.treeViewAdv1 = new Syncfusion.Windows.Forms.Tools.TreeViewAdv();
             this.splitContainerAdv2 = new Syncfusion.Windows.Forms.Tools.SplitContainerAdv();
@@ -149,13 +147,13 @@
             // 
             // diagram1
             // 
-            binding1.DefaultConnector = null;
-            binding1.DefaultNode = null;
-            binding1.Diagram = this.diagram1;
-            binding1.Id = null;
-            binding1.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding1.Label")));
-            binding1.ParentId = null;
-            this.diagram1.Binding = binding1;
+            binding2.DefaultConnector = null;
+            binding2.DefaultNode = null;
+            binding2.Diagram = this.diagram1;
+            binding2.Id = null;
+            binding2.Label = ((System.Collections.Generic.List<string>)(resources.GetObject("binding2.Label")));
+            binding2.ParentId = null;
+            this.diagram1.Binding = binding2;
             this.diagram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.diagram1.Controller.Constraint = Syncfusion.Windows.Forms.Diagram.Constraints.PageEditable;
             this.diagram1.Controller.DefaultConnectorTool = Syncfusion.Windows.Forms.Diagram.ConnectorTool.OrgLineConnectorTool;
@@ -349,6 +347,7 @@
             this.barItemConcordanceEvaluation.ShowToolTipInPopUp = false;
             this.barItemConcordanceEvaluation.SizeToFit = true;
             this.barItemConcordanceEvaluation.Text = "Concordance Evaluation";
+            this.barItemConcordanceEvaluation.Click += new System.EventHandler(this.barItemConcordanceEvaluation_Click);
             // 
             // parentBarItem2
             // 
@@ -391,8 +390,6 @@
             // 
             // splitContainerAdv1.Panel1
             // 
-            this.splitContainerAdv1.Panel1.Controls.Add(this.button1);
-            this.splitContainerAdv1.Panel1.Controls.Add(this.listBox1);
             this.splitContainerAdv1.Panel1.Controls.Add(this.documentExplorer1);
             this.splitContainerAdv1.Panel1.Controls.Add(this.treeViewAdv1);
             // 
@@ -404,24 +401,6 @@
             this.splitContainerAdv1.TabIndex = 3;
             this.splitContainerAdv1.Text = "splitContainerAdv1";
             this.splitContainerAdv1.ThemeName = "None";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "clear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(13, 164);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(167, 412);
-            this.listBox1.TabIndex = 4;
             // 
             // documentExplorer1
             // 
@@ -437,15 +416,15 @@
             // treeViewAdv1
             // 
             this.treeViewAdv1.AccelerateScrolling = Syncfusion.Windows.Forms.AccelerateScrollingBehavior.Immediate;
-            treeNodeAdvStyleInfo1.CheckBoxTickThickness = 1;
-            treeNodeAdvStyleInfo1.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.EnsureDefaultOptionedChild = true;
-            treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            treeNodeAdvStyleInfo1.TextColor = System.Drawing.Color.Black;
+            treeNodeAdvStyleInfo2.CheckBoxTickThickness = 1;
+            treeNodeAdvStyleInfo2.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.EnsureDefaultOptionedChild = true;
+            treeNodeAdvStyleInfo2.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdvStyleInfo2.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo2.TextColor = System.Drawing.Color.Black;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
-            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
+            new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo2)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(198, 601);
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -527,7 +506,7 @@
             this.editControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.editControl.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
             this.editControl.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.editControl.Configurator = config1;
+            this.editControl.Configurator = config2;
             this.editControl.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.editControl.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
             this.editControl.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
@@ -1328,9 +1307,6 @@
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripExCategoryItemMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModify;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
-#if DEBUG
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemSave;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemOpen;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemSaveAs;
@@ -1364,6 +1340,6 @@
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportTxt;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportHtml;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportHwp;
-#endif
+
     }
 }

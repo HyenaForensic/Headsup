@@ -33,160 +33,8 @@ namespace Headup
             diagram1.EventSink.NodeMouseLeave += EventSink_NodeMouseLeave;
             editControl.MouseUp += EditControl_MouseUp;
 
-            #region 이벤트 테스트를 위함
-            diagram1.Model.EventSink.PropertyChanged += EventSink_PropertyChanged1;
-            diagram1.Model.EventSink.RotationChanged += EventSink_RotationChanged;
-            diagram1.Model.EventSink.DocumentBeginUpdate += EventSink_DocumentBeginUpdate;
-            diagram1.Model.EventSink.DocumentEndUpdate += EventSink_DocumentEndUpdate;
-            diagram1.Model.EventSink.SizeChanged += EventSink_SizeChanged;
-            diagram1.Model.EventSink.SizeChanging += EventSink_SizeChanging;
-            diagram1.EventSink.PropertyChanged += EventSink_PropertyChanged;
-            diagram1.SizeChanged += Diagram1_SizeChanged;
-            diagram1.ClientSizeChanged += Diagram1_ClientSizeChanged;
-            editControl.ContextChoiceRightClick += EditControl_ContextChoiceRightClick;
-            editControl.SelectionChanged += EditControl_SelectionChanged;
-            editControl.ContextPromptSelectionChanged += EditControl_ContextPromptSelectionChanged;
-            editControl.ContextChoiceItemSelected += EditControl_ContextChoiceItemSelected;
-            editControl.ContextChoiceSelectedTextInsert += EditControl_ContextChoiceSelectedTextInsert;
-            editControl.MouseCaptureChanged += EditControl_MouseCaptureChanged;
-            editControl.MouseClick += EditControl_MouseClick;
-            editControl.MouseDoubleClick += EditControl_MouseDoubleClick;
-            editControl.MouseDown += EditControl_MouseDown;
-            editControl.MouseEnter += EditControl_MouseEnter;
-            editControl.MouseHover += EditControl_MouseHover;
-            editControl.MouseLeave += EditControl_MouseLeave;
-            editControl.MouseWheel += EditControl_MouseWheel;
-            #endregion
+           
         }
-
-        #region 이벤트 테스트를 위함
-        private void EventSink_PropertyChanged1(PropertyChangedEventArgs evtArgs)
-        {
-            listBox1.Items.Add("\n EventSink_PropertyChanged1\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EventSink_RotationChanged(RotationChangedEventArgs evtArgs)
-        {
-            listBox1.Items.Add("\n EventSink_RotationChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EventSink_DocumentEndUpdate(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n EventSink_DocumentEndUpdate\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EventSink_DocumentBeginUpdate(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n EventSink_DocumentBeginUpdate\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EventSink_SizeChanging(SizeChangingEventArgs evtArgs)
-        {
-            listBox1.Items.Add("\n EventSink_SizeChanging\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EventSink_SizeChanged(SizeChangedEventArgs evtArgs)
-        {
-            listBox1.Items.Add("\n EventSink_SizeChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EventSink_PropertyChanged(PropertyChangedEventArgs evtArgs)
-        {
-            listBox1.Items.Add("\n EventSink_PropertyChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.Clear();
-        }
-        private void Diagram1_ClientSizeChanged(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n Diagram1_ClientSizeChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void Diagram1_SizeChanged(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n Diagram1_SizeChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EditControl_MouseWheel(object sender, MouseEventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseWheel\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseLeave(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseLeave\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseHover(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseHover\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseEnter(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseEnter\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseDown(object sender, MouseEventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseDown\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseDoubleClick\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseClick(object sender, MouseEventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseClick\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_MouseCaptureChanged(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\n EditControl_MouseCaptureChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_ContextChoiceRightClick(IContextChoiceController sender, Syncfusion.Windows.Forms.Edit.ContextChoiceItemEventArgs e)
-        {
-            listBox1.Items.Add("\nEditControl_ContextChoiceRightClick\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-
-        private void EditControl_SelectionChanged(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("\nEditControl_SelectionChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EditControl_ContextPromptSelectionChanged(Syncfusion.Windows.Forms.Edit.Forms.Popup.ContextPrompt sender, Syncfusion.Windows.Forms.Edit.ContextPromptSelectionChangedEventArgs e)
-        {
-            listBox1.Items.Add("\nEditControl_ContextPromptSelectionChanged\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EditControl_ContextChoiceSelectedTextInsert(IContextChoiceController sender, Syncfusion.Windows.Forms.Edit.ContextChoiceTextInsertEventArgs e)
-        {
-            listBox1.Items.Add("\nEditControl_ContextChoiceSelectedTextInsert\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        private void EditControl_ContextChoiceItemSelected(IContextChoiceController sender, Syncfusion.Windows.Forms.Edit.ContextChoiceItemSelectedEventArgs e)
-        {
-            listBox1.Items.Add("\nEditControl_ContextChoiceItemSelected\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-        }
-        #endregion
 
         private void Init()
         {
@@ -460,8 +308,16 @@ namespace Headup
                 }
             }
         }
-        
 
+        private void barItemConcordanceEvaluation_Click(object sender, EventArgs e) //Concordance Evaluation 클릭 시
+        {
+            OpenFileDialog openFile1 = new OpenFileDialog();
+            openFile1.Filter = "All File|*.*";
+            openFile1.Multiselect = true;
+            if (openFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK) //파일 오픈
+            {
+            }
+        }
         #endregion
 
         #region 파일 및 각종 컨트롤 핸들링 관련
@@ -484,7 +340,7 @@ namespace Headup
             RootNode.Remove(); //노드 삭제
             editControl.Text = ""; //editcontrol 삭제
             diagram1.Model.RemoveAllChildren(); //다이어그램 초기화 부분 넣어야 함
-            CurrentFilePath = ""; //labelfilepath 삭제
+            CurrentFilePath = ""; //labelfilepath 삭제up project
             toolStripComboBoxExTemplate.Items.Clear(); //콤보박스리스트 아이템 삭제
             CurrentSelectedColor = new Color(); //현재 선택되어있는 컬러를 초기화한다.
         }
@@ -816,17 +672,11 @@ namespace Headup
         #region 다이어그램 관련 이벤트
         private void EventSink_NodeMouseLeave(NodeMouseEventArgs evtArgs) //노드에서 마우스를 떼면 툴팁을 사라지게 한다.
         {
-            listBox1.Items.Add("\n EventSink_NodeMouseLeave\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-
             sfToolTip.Hide(); //툴팁을 숨긴다.
         }
 
         private void EventSink_NodeMouseEnter(NodeMouseEventArgs evtArgs) //노드에서 마우스를 올리면 툴팁이 활성화된다.
         {
-            listBox1.Items.Add("\n EventSink_NodeMouseEnter\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-
             if (evtArgs.Node.ToolTipText != "") //툴팁 텍스트가 있을 경우만
             {
                 Syncfusion.WinForms.Controls.ToolTipInfo toolTipInfo = new Syncfusion.WinForms.Controls.ToolTipInfo();
@@ -1035,9 +885,6 @@ namespace Headup
         }
         private void EditControl_MouseUp(object sender, MouseEventArgs e) //텍스트 선택 시 이벤트 처리
         {
-            listBox1.Items.Add("\n EditControl_MouseUp\n");
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-
             if (editControl.SelectedText.Length > 0 && IsChoiceCategory()) //선택한 영역이 있고, 색을 선택했다면
             {
                 ChangeSelectBackColor(); //먼저 하이라이트된 글자의 백그라운드 색을 변경한다.
@@ -1202,10 +1049,8 @@ namespace Headup
             set { caseCnt = value; }
         }
 
-
-
         #endregion
 
-        
+       
     }
 }
