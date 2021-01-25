@@ -32,7 +32,17 @@ namespace Headup
             diagram1.EventSink.NodeMouseEnter += EventSink_NodeMouseEnter;
             diagram1.EventSink.NodeMouseLeave += EventSink_NodeMouseLeave;
             editControl.MouseUp += EditControl_MouseUp;
+
             #region 이벤트 테스트를 위함
+            diagram1.Model.EventSink.PropertyChanged += EventSink_PropertyChanged1;
+            diagram1.Model.EventSink.RotationChanged += EventSink_RotationChanged;
+            diagram1.Model.EventSink.DocumentBeginUpdate += EventSink_DocumentBeginUpdate;
+            diagram1.Model.EventSink.DocumentEndUpdate += EventSink_DocumentEndUpdate;
+            diagram1.Model.EventSink.SizeChanged += EventSink_SizeChanged;
+            diagram1.Model.EventSink.SizeChanging += EventSink_SizeChanging;
+            diagram1.EventSink.PropertyChanged += EventSink_PropertyChanged;
+            diagram1.SizeChanged += Diagram1_SizeChanged;
+            diagram1.ClientSizeChanged += Diagram1_ClientSizeChanged;
             editControl.ContextChoiceRightClick += EditControl_ContextChoiceRightClick;
             editControl.SelectionChanged += EditControl_SelectionChanged;
             editControl.ContextPromptSelectionChanged += EditControl_ContextPromptSelectionChanged;
@@ -49,11 +59,58 @@ namespace Headup
             #endregion
         }
 
-
         #region 이벤트 테스트를 위함
+        private void EventSink_PropertyChanged1(PropertyChangedEventArgs evtArgs)
+        {
+            listBox1.Items.Add("\n EventSink_PropertyChanged1\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+        private void EventSink_RotationChanged(RotationChangedEventArgs evtArgs)
+        {
+            listBox1.Items.Add("\n EventSink_RotationChanged\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+        private void EventSink_DocumentEndUpdate(object sender, EventArgs e)
+        {
+            listBox1.Items.Add("\n EventSink_DocumentEndUpdate\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+
+        private void EventSink_DocumentBeginUpdate(object sender, EventArgs e)
+        {
+            listBox1.Items.Add("\n EventSink_DocumentBeginUpdate\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+        private void EventSink_SizeChanging(SizeChangingEventArgs evtArgs)
+        {
+            listBox1.Items.Add("\n EventSink_SizeChanging\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+
+        private void EventSink_SizeChanged(SizeChangedEventArgs evtArgs)
+        {
+            listBox1.Items.Add("\n EventSink_SizeChanged\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+        private void EventSink_PropertyChanged(PropertyChangedEventArgs evtArgs)
+        {
+            listBox1.Items.Add("\n EventSink_PropertyChanged\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+        }
+        private void Diagram1_ClientSizeChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Add("\n Diagram1_ClientSizeChanged\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+        }
+
+        private void Diagram1_SizeChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Add("\n Diagram1_SizeChanged\n");
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
         }
         private void EditControl_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -209,7 +266,7 @@ namespace Headup
         {
             diagram1.Model.BoundaryConstraintsEnabled = false; //노드가 밖으로 나갈 수 있게 해줌
             diagram1.Model.SizeToContent = true; //노드 위치에 따라 document 크기를 자동으로 늘어나게 해줌
-            diagram1.Model.MinimumSize = new SizeF(800, 600); //최소 크기를 지정해야된다.
+            diagram1.Model.MinimumSize = new SizeF(2000, 600); //최소 크기를 지정해야된다.
 
             //라인이 크로스 되는 경우 처리
             diagram1.Model.LineBridgeSize = 20; //넘어가는 크기 U모양 크기(?)
@@ -230,7 +287,7 @@ namespace Headup
             for (int i = 0; i < 4; i++)
             {
                 //배경 색 넣는 부분 (도형을 이용)
-                Syncfusion.Windows.Forms.Diagram.Rectangle rectangleTmp = new Syncfusion.Windows.Forms.Diagram.Rectangle(0, i * diagramLayerHeight, diagram1.View.Width, diagramLayerHeight); //x, y시작점 , 가로,세로 길이
+                Syncfusion.Windows.Forms.Diagram.Rectangle rectangleTmp = new Syncfusion.Windows.Forms.Diagram.Rectangle(0, i * diagramLayerHeight, diagram1.Model.DocumentSize.Width, diagramLayerHeight); //x, y시작점 , 가로,세로 길이
                 //백그라운드 색 지정을 나중에 하면 투명도가 생략되기 때문에 색 지정을 먼저 한다.
                 if (i == 0) { rectangleTmp.FillStyle.Color = System.Drawing.Color.LightBlue; } // 색지정
                 else if (i == 1) { rectangleTmp.FillStyle.Color = System.Drawing.Color.MistyRose; } // 색지정
@@ -360,7 +417,7 @@ namespace Headup
             }
             db.SqlClose();
         }
-        private void barItemImportFile_Click(object sender, EventArgs e) //Import TXT 클릭 시
+        private void barItemImportTxt_Click(object sender, EventArgs e) //Import txt 클릭 시
         {
             OpenFileDialog openFile1 = new OpenFileDialog();
             openFile1.Filter = "TEXT File|*.txt";
@@ -403,6 +460,7 @@ namespace Headup
                 }
             }
         }
+        
 
         #endregion
 
@@ -1134,9 +1192,10 @@ namespace Headup
             get { return caseCnt; }
             set { caseCnt = value; }
         }
-        #endregion
 
-        
+
+
+        #endregion
 
         
     }

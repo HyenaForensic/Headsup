@@ -43,7 +43,11 @@
             this.barItemSaveAs = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.barItemExit = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.parentBarItemEdit = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
-            this.barItemImportFile = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.parentBarItemImport = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
+            this.barItemImportTxt = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.barItemImportHtml = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.barItemImportHwp = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
+            this.barItemConcordanceEvaluation = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.parentBarItem2 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.parentBarItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -88,13 +92,6 @@
             this.toolStripButtonPolyTool = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSplineTool = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBezierTool = new System.Windows.Forms.ToolStripButton();
-            this.overviewControl1 = new Syncfusion.Windows.Forms.Diagram.Controls.OverviewControl(this.components);
-            this.tabPageAdvTimeline = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.tabPageAdvIssue = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.flowLayout1 = new Syncfusion.Windows.Forms.Tools.FlowLayout(this.components);
-            this.contextMenuStripExCategoryItemMenu = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
-            this.toolStripMenuItemModify = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelNode = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonRectangle = new System.Windows.Forms.ToolStripButton();
@@ -106,6 +103,13 @@
             this.toolStripButtonBitmap = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonText = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRichText = new System.Windows.Forms.ToolStripButton();
+            this.overviewControl1 = new Syncfusion.Windows.Forms.Diagram.Controls.OverviewControl(this.components);
+            this.tabPageAdvTimeline = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.tabPageAdvIssue = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.flowLayout1 = new Syncfusion.Windows.Forms.Tools.FlowLayout(this.components);
+            this.contextMenuStripExCategoryItemMenu = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            this.toolStripMenuItemModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.diagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAdv1)).BeginInit();
@@ -189,11 +193,12 @@
             this.model1.DocumentScale.DisplayName = "No Scale";
             this.model1.DocumentScale.Height = 1F;
             this.model1.DocumentScale.Width = 1F;
+            this.model1.DocumentSize.DisplayName = "SameAsPrinter";
             this.model1.DocumentSize.Height = 566.9291F;
-            this.model1.DocumentSize.Width = 396.8504F;
+            this.model1.DocumentSize.Width = 2000F;
             this.model1.LineStyle.DashPattern = null;
             this.model1.LineStyle.LineColor = System.Drawing.Color.Black;
-            this.model1.LogicalSize = new System.Drawing.SizeF(396.8504F, 566.9291F);
+            this.model1.LogicalSize = new System.Drawing.SizeF(2000F, 566.9291F);
             this.model1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.model1.ShadowStyle.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.model1.ShadowStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
@@ -288,7 +293,8 @@
             this.parentBarItemEdit.BarName = "parentBarItemEdit";
             this.parentBarItemEdit.ID = "Edit";
             this.parentBarItemEdit.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
-            this.barItemImportFile});
+            this.parentBarItemImport,
+            this.barItemConcordanceEvaluation});
             this.parentBarItemEdit.MetroColor = System.Drawing.Color.LightSkyBlue;
             this.parentBarItemEdit.ShowToolTipInPopUp = false;
             this.parentBarItemEdit.SizeToFit = true;
@@ -296,14 +302,53 @@
             this.parentBarItemEdit.Text = "Edit";
             this.parentBarItemEdit.WrapLength = 20;
             // 
-            // barItemImportFile
+            // parentBarItemImport
             // 
-            this.barItemImportFile.BarName = "barItemImportFile";
-            this.barItemImportFile.ID = "Import TXT";
-            this.barItemImportFile.ShowToolTipInPopUp = false;
-            this.barItemImportFile.SizeToFit = true;
-            this.barItemImportFile.Text = "Import TXT";
-            this.barItemImportFile.Click += new System.EventHandler(this.barItemImportFile_Click);
+            this.parentBarItemImport.BarName = "parentBarItemImport";
+            this.parentBarItemImport.ID = "Import";
+            this.parentBarItemImport.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
+            this.barItemImportTxt,
+            this.barItemImportHtml,
+            this.barItemImportHwp});
+            this.parentBarItemImport.MetroColor = System.Drawing.Color.LightSkyBlue;
+            this.parentBarItemImport.ShowToolTipInPopUp = false;
+            this.parentBarItemImport.SizeToFit = true;
+            this.parentBarItemImport.Style = Syncfusion.Windows.Forms.VisualStyle.OfficeXP;
+            this.parentBarItemImport.Text = "Import";
+            this.parentBarItemImport.WrapLength = 20;
+            // 
+            // barItemImportTxt
+            // 
+            this.barItemImportTxt.BarName = "barItemImportTxt";
+            this.barItemImportTxt.ID = "ImportTxt";
+            this.barItemImportTxt.ShowToolTipInPopUp = false;
+            this.barItemImportTxt.SizeToFit = true;
+            this.barItemImportTxt.Text = "TXT";
+            this.barItemImportTxt.Click += new System.EventHandler(this.barItemImportTxt_Click);
+            // 
+            // barItemImportHtml
+            // 
+            this.barItemImportHtml.BarName = "barItemImportHtml";
+            this.barItemImportHtml.ID = "HTML";
+            this.barItemImportHtml.ShowToolTipInPopUp = false;
+            this.barItemImportHtml.SizeToFit = true;
+            this.barItemImportHtml.Text = "HTML";
+            // 
+            // barItemImportHwp
+            // 
+            this.barItemImportHwp.BarName = "barItemImportHwp";
+            this.barItemImportHwp.ID = "HWP";
+            this.barItemImportHwp.ShowToolTipInPopUp = false;
+            this.barItemImportHwp.SizeToFit = true;
+            this.barItemImportHwp.Text = "HWP";
+            // 
+            // barItemConcordanceEvaluation
+            // 
+            this.barItemConcordanceEvaluation.BarName = "barItemConcordanceEvaluation";
+            this.barItemConcordanceEvaluation.ID = "Import TXT";
+            this.barItemConcordanceEvaluation.ShowToolTipInPopUp = false;
+            this.barItemConcordanceEvaluation.SizeToFit = true;
+            this.barItemConcordanceEvaluation.Text = "Concordance Evaluation";
             // 
             // parentBarItem2
             // 
@@ -953,71 +998,6 @@
             this.toolStripButtonBezierTool.ToolTipText = "BezierTool";
             this.toolStripButtonBezierTool.Click += new System.EventHandler(this.toolStripButtonBezierTool_Click);
             // 
-            // overviewControl1
-            // 
-            this.overviewControl1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.overviewControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.overviewControl1.Diagram = this.diagram1;
-            this.overviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overviewControl1.ForeColor = System.Drawing.Color.Red;
-            this.overviewControl1.Location = new System.Drawing.Point(0, 0);
-            this.overviewControl1.Name = "overviewControl1";
-            this.overviewControl1.Size = new System.Drawing.Size(635, 144);
-            this.overviewControl1.TabIndex = 0;
-            // 
-            // tabPageAdvTimeline
-            // 
-            this.tabPageAdvTimeline.Image = null;
-            this.tabPageAdvTimeline.ImageSize = new System.Drawing.Size(16, 16);
-            this.tabPageAdvTimeline.Location = new System.Drawing.Point(3, 26);
-            this.tabPageAdvTimeline.Name = "tabPageAdvTimeline";
-            this.tabPageAdvTimeline.ShowCloseButton = true;
-            this.tabPageAdvTimeline.Size = new System.Drawing.Size(635, 571);
-            this.tabPageAdvTimeline.TabIndex = 2;
-            this.tabPageAdvTimeline.Text = "Timeline";
-            this.tabPageAdvTimeline.ThemesEnabled = true;
-            // 
-            // tabPageAdvIssue
-            // 
-            this.tabPageAdvIssue.Image = null;
-            this.tabPageAdvIssue.ImageSize = new System.Drawing.Size(16, 16);
-            this.tabPageAdvIssue.Location = new System.Drawing.Point(3, 26);
-            this.tabPageAdvIssue.Name = "tabPageAdvIssue";
-            this.tabPageAdvIssue.ShowCloseButton = true;
-            this.tabPageAdvIssue.Size = new System.Drawing.Size(635, 571);
-            this.tabPageAdvIssue.TabIndex = 3;
-            this.tabPageAdvIssue.Text = "Issue";
-            this.tabPageAdvIssue.ThemesEnabled = true;
-            // 
-            // flowLayout1
-            // 
-            this.flowLayout1.AutoHeight = true;
-            // 
-            // contextMenuStripExCategoryItemMenu
-            // 
-            this.contextMenuStripExCategoryItemMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemModify,
-            this.toolStripMenuItemDelete});
-            this.contextMenuStripExCategoryItemMenu.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
-            this.contextMenuStripExCategoryItemMenu.Name = "contextMenuStripExCategoryItemMenu";
-            this.contextMenuStripExCategoryItemMenu.Size = new System.Drawing.Size(99, 48);
-            this.contextMenuStripExCategoryItemMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Default;
-            this.contextMenuStripExCategoryItemMenu.ThemeName = "Default";
-            // 
-            // toolStripMenuItemModify
-            // 
-            this.toolStripMenuItemModify.Name = "toolStripMenuItemModify";
-            this.toolStripMenuItemModify.Size = new System.Drawing.Size(98, 22);
-            this.toolStripMenuItemModify.Text = "수정";
-            this.toolStripMenuItemModify.Click += new System.EventHandler(this.toolStripMenuItemModify_Click);
-            // 
-            // toolStripMenuItemDelete
-            // 
-            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(98, 22);
-            this.toolStripMenuItemDelete.Text = "삭제";
-            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -1180,6 +1160,71 @@
             this.toolStripButtonRichText.ToolTipText = "RichText";
             this.toolStripButtonRichText.Click += new System.EventHandler(this.toolStripButtonRichText_Click);
             // 
+            // overviewControl1
+            // 
+            this.overviewControl1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.overviewControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.overviewControl1.Diagram = this.diagram1;
+            this.overviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.overviewControl1.ForeColor = System.Drawing.Color.Red;
+            this.overviewControl1.Location = new System.Drawing.Point(0, 0);
+            this.overviewControl1.Name = "overviewControl1";
+            this.overviewControl1.Size = new System.Drawing.Size(635, 144);
+            this.overviewControl1.TabIndex = 0;
+            // 
+            // tabPageAdvTimeline
+            // 
+            this.tabPageAdvTimeline.Image = null;
+            this.tabPageAdvTimeline.ImageSize = new System.Drawing.Size(16, 16);
+            this.tabPageAdvTimeline.Location = new System.Drawing.Point(3, 26);
+            this.tabPageAdvTimeline.Name = "tabPageAdvTimeline";
+            this.tabPageAdvTimeline.ShowCloseButton = true;
+            this.tabPageAdvTimeline.Size = new System.Drawing.Size(635, 571);
+            this.tabPageAdvTimeline.TabIndex = 2;
+            this.tabPageAdvTimeline.Text = "Timeline";
+            this.tabPageAdvTimeline.ThemesEnabled = true;
+            // 
+            // tabPageAdvIssue
+            // 
+            this.tabPageAdvIssue.Image = null;
+            this.tabPageAdvIssue.ImageSize = new System.Drawing.Size(16, 16);
+            this.tabPageAdvIssue.Location = new System.Drawing.Point(3, 26);
+            this.tabPageAdvIssue.Name = "tabPageAdvIssue";
+            this.tabPageAdvIssue.ShowCloseButton = true;
+            this.tabPageAdvIssue.Size = new System.Drawing.Size(635, 571);
+            this.tabPageAdvIssue.TabIndex = 3;
+            this.tabPageAdvIssue.Text = "Issue";
+            this.tabPageAdvIssue.ThemesEnabled = true;
+            // 
+            // flowLayout1
+            // 
+            this.flowLayout1.AutoHeight = true;
+            // 
+            // contextMenuStripExCategoryItemMenu
+            // 
+            this.contextMenuStripExCategoryItemMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemModify,
+            this.toolStripMenuItemDelete});
+            this.contextMenuStripExCategoryItemMenu.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
+            this.contextMenuStripExCategoryItemMenu.Name = "contextMenuStripExCategoryItemMenu";
+            this.contextMenuStripExCategoryItemMenu.Size = new System.Drawing.Size(99, 48);
+            this.contextMenuStripExCategoryItemMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Default;
+            this.contextMenuStripExCategoryItemMenu.ThemeName = "Default";
+            // 
+            // toolStripMenuItemModify
+            // 
+            this.toolStripMenuItemModify.Name = "toolStripMenuItemModify";
+            this.toolStripMenuItemModify.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItemModify.Text = "수정";
+            this.toolStripMenuItemModify.Click += new System.EventHandler(this.toolStripMenuItemModify_Click);
+            // 
+            // toolStripMenuItemDelete
+            // 
+            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItemDelete.Text = "삭제";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1290,7 +1335,7 @@
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemOpen;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemSaveAs;
         private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemExit;
-        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportFile;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemConcordanceEvaluation;
         private System.Windows.Forms.ToolStrip toolStripDiagram;
         private System.Windows.Forms.ToolStripButton toolStripButtonLineLink;
         private System.Windows.Forms.ToolStripButton toolStripButtonDirectedLineLink;
@@ -1315,6 +1360,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBitmap;
         private System.Windows.Forms.ToolStripButton toolStripButtonText;
         private System.Windows.Forms.ToolStripButton toolStripButtonRichText;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.ParentBarItem parentBarItemImport;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportTxt;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportHtml;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.BarItem barItemImportHwp;
 #endif
     }
 }
