@@ -483,7 +483,7 @@ namespace Headup
             SelectedStatusDs.Clear(); //DS 삭제
             RootNode.Remove(); //노드 삭제
             editControl.Text = ""; //editcontrol 삭제
-            //다이어그램 초기화 부분 넣어야 함
+            diagram1.Model.RemoveAllChildren(); //다이어그램 초기화 부분 넣어야 함
             CurrentFilePath = ""; //labelfilepath 삭제
             toolStripComboBoxExTemplate.Items.Clear(); //콤보박스리스트 아이템 삭제
             CurrentSelectedColor = new Color(); //현재 선택되어있는 컬러를 초기화한다.
@@ -1123,9 +1123,18 @@ namespace Headup
             set
             {
                 currentFilePath = value;
-                FileInfo tmp = new FileInfo(currentFilePath);
-                labelFilePath.Text = tmp.Name;
-                editControl.StatusBarSettings.TextPanel.Panel.Text = tmp.FullName;
+                if(currentFilePath == "")
+                {
+                    labelFilePath.Text = "";
+                    editControl.StatusBarSettings.TextPanel.Panel.Text = "";
+                }
+                else
+                {
+                    FileInfo tmp = new FileInfo(currentFilePath);
+                    labelFilePath.Text = tmp.Name;
+                    editControl.StatusBarSettings.TextPanel.Panel.Text = tmp.FullName;
+                }
+                
             }
         }
         public System.Windows.Forms.Label CurrentCategoryLabel
