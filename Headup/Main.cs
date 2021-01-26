@@ -707,7 +707,7 @@ namespace Headup
             }
         }
 
-        private void AddDiagramNode(string text, int x, int y, Color color)
+        private void AddDiagramNode(string text, int x, int y, Color color) //다이어그램 노드 추가 매소드
         {
             string subText = text;
             if (subText.Length > 32) //32글자 이상이 되면 ...으로 자른다.
@@ -753,7 +753,7 @@ namespace Headup
                             if (row["IsGoToDiagram"].ToString() == "False") //아직 다이어그램에 추가되지 않은 데이터라면
                             {
                                 int categoryIndex = Convert.ToInt32(row["categoryIndex"]);
-                                if (categoryIndex < 5)
+                                if (categoryIndex < 5) //layer는 4단계이기 때문에 넘어가면 처리하지 않는다.
                                 {
                                     int x = 200 * (NodeXCnt[categoryIndex - 1] - 1) + 40; //categoryIndex는 1부터 시작하기 때문에 -1을 해준다.
                                     // 200은 노드끼리의 거리, NodeXCnt[categoryIndex - 1] 마지막 노드, -1 0부터 해야 200*0으로 시작됨, +40 시작점은 40부터 시작
